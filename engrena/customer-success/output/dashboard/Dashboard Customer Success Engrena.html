@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Success | Engrena</title>
+  <style>:root{color-scheme:light;--ink:#102743;--soft:#435c77;--faint:#59718a;--blue:#1459eb;--blue-deep:#104ac5;--blue-lite:#edf3ff;--bg:#f3f7fc;--edge:#dbe5f1;--white:#fff;--green:#176743;--green-bg:#e7f5ed;--amber:#865008;--amber-bg:#fff2d9;--red:#a12b38;--red-bg:#fcebef;--navy:#102641;font-family:Inter,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;min-width:320px;font-size:14px;line-height:1.5}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button,select{min-height:40px}
+button:disabled{cursor:not-allowed;opacity:.65}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+a{color:var(--blue-deep)}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.18}
+p{max-width:75ch;text-wrap:pretty}
+svg{display:inline-block;vertical-align:middle}
+.skip{position:absolute;top:-80px;left:16px;background:var(--white);padding:12px;z-index:3}
+.skip:focus{top:10px}
+.mast{background:var(--white);border-bottom:1px solid var(--edge)}
+.mast-inner,.nav-inner,.foot{max-width:1472px;margin:auto;padding-inline:48px}
+.mast-inner{min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand,.mast-right{display:flex;align-items:center;gap:17px}
+.brand img{display:block;object-fit:contain}
+.brand span{border-left:1px solid var(--edge);padding-left:17px;color:var(--soft);font-weight:600;font-size:13px}
+.demo{display:inline-flex;align-items:center;gap:7px;color:var(--blue-deep);background:var(--blue-lite);padding:5px 11px;border-radius:999px;font-weight:650;white-space:nowrap;font-size:12px}
+.demo i{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.nav{background:#f9fbfe;border-bottom:1px solid var(--edge)}
+.nav-inner{display:flex;gap:27px;align-items:stretch}
+.nav button{border:0;border-bottom:2px solid transparent;background:none;min-height:53px;padding:0 4px;display:inline-flex;align-items:center;gap:8px;color:var(--soft);font-weight:650;white-space:nowrap}
+.nav button[aria-current]{border-color:var(--blue);color:var(--blue-deep)}
+.nav button:hover,.quiet:hover{color:var(--blue-deep)}
+.nav svg{width:17px;height:17px}
+.nav button span:not(:empty){min-width:20px;text-align:center;background:#eaf0f9;border-radius:999px;padding:0 4px;font-size:11px}
+#main{max-width:1472px;margin:auto;padding:31px 48px 46px;min-height:70vh}
+#main:focus{outline:none}
+.pagehead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px}
+.pagehead h1{font-size:clamp(30px,3.2vw,43px);font-weight:720;line-height:1.09}
+.eyebrow{font-size:11px;color:var(--blue-deep);font-weight:750;letter-spacing:.09em;text-transform:uppercase;margin-bottom:7px}
+.lead{margin-top:8px;color:var(--soft);font-size:14px}
+.period,.field{display:grid;gap:5px;color:var(--soft);font-weight:650;font-size:12px}
+.period{min-width:186px}
+select,input,textarea{background:var(--white);color:var(--ink);border:1px solid #c9d6e6;border-radius:7px;min-height:40px;padding:7px 10px;width:100%}
+select{padding-right:24px}
+textarea{min-height:89px;resize:vertical}
+.button,.quiet,.link-button{border-radius:7px;font-size:13px;font-weight:680;min-height:40px;padding:8px 13px}
+.button{border:1px solid var(--blue);background:var(--blue);color:var(--white)}
+.button:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
+.button.secondary{border:1px solid #c9d6e6;background:var(--white);color:var(--ink)}
+.button.secondary:hover{border-color:var(--blue);color:var(--blue-deep)}
+.quiet,.link-button{border:1px solid transparent;background:transparent;color:var(--blue-deep)}
+.quiet{padding-inline:7px}
+.link-button{padding-inline:0;text-align:left}
+.save-message{font-weight:650;color:var(--green)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:17px}
+.kpi{min-width:0;border:1px solid var(--edge);padding:17px 17px 15px;background:var(--white);border-radius:11px}
+.kpi p{color:var(--soft);font-size:13px;font-weight:600}
+.kpi strong{display:block;font-size:clamp(25px,2.65vw,37px);line-height:1.05;margin:10px 0 8px;font-weight:720;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.kpi small{color:var(--faint);font-size:12px}
+.kpi.risk{background:var(--navy);border-color:var(--navy);color:#fff}
+.kpi.risk p,.kpi.risk small{color:#d6e5fa}
+.kpi.risk strong{font-size:clamp(24px,2.4vw,34px)}
+.pair{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:17px;margin-bottom:17px}
+.panel{min-width:0;background:var(--white);border:1px solid var(--edge);border-radius:11px}
+.panel-pad{padding:19px}
+.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 19px 13px}
+.panel-head h2,.panel-pad h2{font-size:18px;font-weight:700}
+.panel-head p,.panel-pad>p{font-size:13px;color:var(--soft);margin-top:5px}
+.chart-wrap{padding:0 18px 14px;min-width:0}
+.chart{width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--faint);font-size:14px;font-family:inherit;font-weight:600}
+.chart-short{display:none}
+.chart .chart-line{fill:none;stroke:var(--blue);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.chart .chart-area{fill:#edf4ff}
+.chart .grid{stroke:#e4ecf6;stroke-width:1}
+.chart .point{fill:var(--white);stroke:var(--blue);stroke-width:2.2}
+.chart .chart-trigger{cursor:pointer}
+.chart .chart-trigger:focus-visible{outline:none}
+.chart .chart-trigger:focus-visible .point,.chart .chart-trigger:hover .point,.chart .chart-trigger.current .point{fill:var(--blue);stroke:var(--white);stroke-width:3}
+.chart .chart-trigger .point-halo{fill:none;stroke:transparent;stroke-width:2}
+.chart .chart-trigger:focus-visible .point-halo{stroke:var(--blue)}
+.chart .selection{stroke:var(--blue);stroke-width:1;stroke-dasharray:3 5}
+.chart .selected-label{fill:var(--blue-deep)}
+.chart-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--edge);padding-top:11px;color:var(--soft);font-size:12px}
+.chart-foot strong{color:var(--ink)}
+.distribution{padding:0 19px 16px}
+.segments{display:flex;height:8px;border-radius:20px;overflow:hidden;background:#eaf0f7;margin:6px 0 11px}
+.segments span+span{border-left:2px solid white}
+.segments .green{background:#379568}.segments .amber{background:#dc9f36}.segments .red{background:#cf525f}.segments .neutral{background:#9eb2c8}.segments .muted{background:#d7e1ed}
+.dist-row{display:flex;border-bottom:1px solid #edf2f7;justify-content:space-between;align-items:center;gap:8px;min-height:36px}
+.dist-row:last-child{border-bottom:0}
+.dist-row strong{font-size:14px;font-variant-numeric:tabular-nums}
+.dist-row .tag{background:none;padding-inline:0}
+.tag{width:max-content;max-width:100%;display:inline-flex;align-items:center;gap:6px;border-radius:5px;padding:3px 7px;font-weight:670;font-size:12px;line-height:1.45;white-space:normal}
+.tag i{width:6px;height:6px;flex:none;border-radius:50%;background:currentColor}
+.tag.green{color:var(--green);background:var(--green-bg)}.tag.amber{color:var(--amber);background:var(--amber-bg)}.tag.red{color:var(--red);background:var(--red-bg)}.tag.neutral{color:#4b617a;background:#edf2f8}.tag.muted{color:#53677d;background:#f4f6f8}
+.action-list{list-style:none;padding:0;margin:0}
+.action-list li{display:grid;grid-template-columns:112px minmax(195px,1.05fr) minmax(160px,1.15fr) auto;align-items:center;gap:13px;border-top:1px solid var(--edge);padding:9px 19px;min-height:58px}
+.action-list strong,.action-list small{display:block}
+.action-list small,.help,.subtle{color:var(--soft);font-size:12px}
+.overview-bottom{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:17px}
+.next-panel{padding:18px 19px;display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.next-panel .summary-line{padding-bottom:11px;border-bottom:1px solid var(--edge);width:100%}
+.next-panel h2{font-size:18px}
+.next-panel p{color:var(--soft);font-size:13px}
+.filter-row{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;padding:4px 19px 15px}
+.filter-row label{width:145px;max-width:100%}
+.filter-row .search{flex:1;min-width:170px}
+.table-wrap{overflow:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;text-align:left;font-variant-numeric:tabular-nums}
+th,td{padding:11px 12px;border-top:1px solid var(--edge);vertical-align:middle}
+th{white-space:nowrap;font-size:12px;color:var(--soft);background:#f8fbff;font-weight:700}
+th:first-child,td:first-child{padding-left:19px}
+th:last-child,td:last-child{padding-right:19px}
+td:first-child{min-width:194px}
+td .client-link{color:var(--ink);font-weight:700;border:0;background:none;padding:0;text-align:left;min-height:32px}
+td .client-link:hover{text-decoration:underline;color:var(--blue-deep)}
+td small{display:block;font-size:11px;color:var(--soft)}
+tbody tr:hover{background:#f8fbff}
+.table-result{padding:12px 19px;color:var(--soft);border-top:1px solid var(--edge);font-size:12px}
+.empty{padding:22px 19px;color:var(--soft)}
+.alert-list,.intervention-list{display:grid;gap:12px;padding:0;list-style:none;margin:0}
+.alert-card,.intervention-card{border:1px solid var(--edge);border-radius:9px;background:white;padding:15px 17px}
+.alert-card h3,.intervention-card h3{font-size:16px;margin:8px 0}
+.alert-card p,.intervention-card p{font-size:13px;color:var(--soft);margin-bottom:5px}
+.alert-card .row,.intervention-card .row{margin-bottom:5px}
+.alert-card footer,.intervention-card footer{margin-top:9px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.inside{padding:0 19px 16px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.stack{display:grid;gap:17px;align-content:start}
+.section-gap{margin-top:17px}
+.detail-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.detail-top h1{font-size:clamp(29px,3.1vw,42px)}
+.detail-top .tag{margin-top:3px}
+.metrics-table td:first-child{min-width:200px}
+.metrics-table td:first-child strong{display:block}
+.metrics-table td:first-child small{max-width:42ch}
+.summary-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:11px}
+.summary-metrics div{border-top:1px solid var(--edge);padding-top:8px}
+.summary-metrics dt{color:var(--soft);font-size:12px}
+.summary-metrics dd{margin:1px 0 0;font-size:18px;font-weight:700;overflow-wrap:anywhere}
+.details-box{margin:12px 0 0}
+.details-box summary{cursor:pointer;color:var(--blue-deep);font-weight:650;width:max-content;max-width:100%;min-height:34px}
+.details-box p{color:var(--soft);font-size:13px;margin:7px 0}
+.report-intro{max-width:65ch;font-size:16px;font-weight:650;color:var(--ink);margin:9px 0 12px}
+.report-list{padding-left:20px;margin:8px 0 0;color:var(--soft)}
+.report-list li{margin-bottom:7px}
+.report-section{padding:16px 19px;border-top:1px solid var(--edge)}
+.report-section h3{font-size:15px}
+.report-section p{color:var(--soft);margin-top:6px}
+.foot{display:flex;gap:15px;justify-content:space-between;color:var(--soft);font-size:12px;padding-block:4px 17px}
+.foot span:first-child{font-weight:700;color:var(--ink)}
+dialog{width:min(640px,calc(100% - 26px));max-height:90dvh;border:1px solid var(--edge);border-radius:13px;padding:0;color:var(--ink);box-shadow:0 20px 62px #10274338}
+dialog::backdrop{background:#10264190}
+.modal-head{position:sticky;top:0;padding:16px 18px 13px;background:var(--white);border-bottom:1px solid var(--edge);display:flex;gap:9px;align-items:center;justify-content:space-between;z-index:1}
+.modal-head h2{font-size:20px}
+.modal-body{padding:16px 18px 18px}
+.modal-body p+p{margin-top:10px}
+.edit-grid{display:grid;gap:12px}
+.edit-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(72px,.53fr) minmax(72px,.53fr);gap:8px;align-items:end;border-bottom:1px solid var(--edge);padding-bottom:8px}
+.edit-row .field{margin:0}
+.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px;flex-wrap:wrap}
+.error{color:var(--red);font-size:13px;margin-top:8px}
+.error:empty{display:none}
+#notice{position:fixed;bottom:max(14px,env(safe-area-inset-bottom));right:14px;max-width:calc(100% - 28px);border-radius:8px;background:var(--navy);color:var(--white);font-size:13px;padding:10px 14px;z-index:2}
+#notice:empty{padding:0}
+@media(max-width:1050px){.mast-inner,.nav-inner,.foot,#main{padding-inline:29px}.action-list li{grid-template-columns:92px 1fr auto}.action-list li>small{display:none}.overview-bottom{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}}
+@media(max-width:760px){.mast-inner,.nav-inner,.foot,#main{padding-inline:20px}.mast-inner{min-height:61px}.nav-inner{gap:19px;overflow:auto}.nav button{min-height:46px;font-size:13px}.pagehead{align-items:flex-start;margin-bottom:17px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.kpi{padding:12px}.pair,.overview-bottom{grid-template-columns:1fr;gap:12px}.panel-head{padding:15px 13px 12px}.panel-pad,.next-panel{padding:15px 13px}.inside,.distribution,.chart-wrap{padding-inline:13px}.filter-row{padding-inline:13px}.panel-head h2,.panel-pad h2{font-size:17px}.foot{font-size:11px}.mobile-priority{grid-row:1}}
+@media(max-width:480px){.mast-inner,.nav-inner,.foot,#main{padding-inline:14px}.mast-inner{gap:8px;min-height:58px}.brand{gap:6px;flex-wrap:wrap}.brand img{width:92px;height:auto}.brand span{display:none}.mast-right{gap:5px}.demo{font-size:10px;padding:4px 7px}.methodology{font-size:11px;padding:4px}.nav-inner{gap:15px}.nav button{font-size:12px;gap:4px;padding-inline:0}.nav svg{display:none}#main{padding-top:22px}.pagehead,.detail-top{display:grid;gap:12px}.period{width:min(100%,225px)}.panel-head .button{align-self:flex-start}.action-list li{grid-template-columns:69px minmax(0,1fr) auto;gap:6px;padding-inline:12px}.action-list .link-button{font-size:12px}.summary-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.summary-metrics dd{font-size:16px}.chart text{font-size:17px}.chart-foot{font-size:11px}.filter-row label{width:calc(50% - 5px)}.filter-row .search{flex:1 0 100%}.tag{font-size:11px}}
+@media(max-width:480px){.chart text{font-size:21px}.chart-long{display:none}.chart-short{display:block}}
+@media print{body{background:white}.mast,.nav,.foot,#notice,.no-print,.skip,dialog{display:none!important}#main{padding:0;min-height:0}.panel{box-shadow:none;break-inside:avoid}.kpi.risk{color:var(--ink);background:white}.kpi.risk p,.kpi.risk small{color:var(--ink)}}
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Ir para o conteúdo</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <div class="brand"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NDAgMTI4IiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+PHRpdGxlIGlkPSJ0aXRsZSI+RW5ncmVuYTwvdGl0bGU+PGRlc2MgaWQ9ImRlc2MiPk3DqXRvZG8sIHRlY25vbG9naWEgZSBvcGVyYcOnw6NvIGVtIHNpbnRvbmlhLjwvZGVzYz48ZGVmcz48cG9seWdvbiBpZD0ibG9nby1ib2R5IiBwb2ludHM9IjY0LjAwLDEzLjAwIDcwLjQ4LDIuMzQgNzYuODksMy4zNSA4My4xNiw1LjAzIDg0Ljc0LDE3LjQxIDg5LjUwLDE5LjgzIDkzLjk4LDIyLjc0IDEwNS40OSwxNy45MyAxMTAuMDcsMjIuNTEgMTE0LjE2LDI3LjU2IDEwOC4xNywzOC41MCAxMTAuNTksNDMuMjYgMTEyLjUwLDQ4LjI0IDEyNC42NSw1MS4xMSAxMjUuNjYsNTcuNTIgMTI2LjAwLDY0LjAwIDExNC43Miw2OS4zMyAxMTMuODksNzQuNjAgMTEyLjUwLDc5Ljc2IDEyMC42NCw4OS4yMiAxMTcuNjksOTUuMDAgMTE0LjE2LDEwMC40NCAxMDEuOTAsOTguMTMgOTguMTMsMTAxLjkwIDkzLjk4LDEwNS4yNiA5NS4wMCwxMTcuNjkgODkuMjIsMTIwLjY0IDgzLjE2LDEyMi45NyA3NC42MCwxMTMuODkgNjkuMzMsMTE0LjcyIDY0LjAwLDExNS4wMCA1Ny41MiwxMjUuNjYgNTEuMTEsMTI0LjY1IDQ0Ljg0LDEyMi45NyA0My4yNiwxMTAuNTkgMzguNTAsMTA4LjE3IDM0LjAyLDEwNS4yNiAyMi41MSwxMTAuMDcgMTcuOTMsMTA1LjQ5IDEzLjg0LDEwMC40NCAxOS44Myw4OS41MCAxNy40MSw4NC43NCAxNS41MCw3OS43NiAzLjM1LDc2Ljg5IDIuMzQsNzAuNDggMi4wMCw2NC4wMCAxMy4yOCw1OC42NyAxNC4xMSw1My40MCAxNS41MCw0OC4yNCA3LjM2LDM4Ljc4IDEwLjMxLDMzLjAwIDEzLjg0LDI3LjU2IDI2LjEwLDI5Ljg3IDI5Ljg3LDI2LjEwIDM0LjAyLDIyLjc0IDMzLjAwLDEwLjMxIDM4Ljc4LDcuMzYgNDQuODQsNS4wMyA1My40MCwxNC4xMSA1OC42NywxMy4yOCIvPjxtYXNrIGlkPSJsb2dvLWN1dHMiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4Ij48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSI0MSIgeT0iNDEiIHdpZHRoPSI0NiIgaGVpZ2h0PSI0NiIgcng9IjciIGZpbGw9ImJsYWNrIi8+PC9tYXNrPjxjbGlwUGF0aCBpZD0ibG9nby1wYXJ0LTAiPjxwYXRoIGQ9Ik0wIDBIMTI4VjQxSDExM0wxMDggMzVIMTAwTDk1IDQxSDY0VjY0SDM0TDI5IDcwSDIxTDE2IDY0SDBaIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImxvZ28tcGFydC0xIj48cGF0aCBkPSJNMCA2NEgxNkwyMSA3MEgyOUwzNCA2NEg2NFY5Nkw3MCAxMDFWMTA5TDY0IDExNFYxMjhIMFoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0ibG9nby1wYXJ0LTIiPjxwYXRoIGQ9Ik02NCA0MUg5NUwxMDAgMzVIMTA4TDExMyA0MUgxMjhWMTI4SDY0VjExNEw3MCAxMDlWMTAxTDY0IDk2VjY0WiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJnZWFyLXBpZWNlLXRvcCI+PGcgbWFzaz0idXJsKCNsb2dvLWN1dHMpIiBjbGlwLXBhdGg9InVybCgjbG9nby1wYXJ0LTApIj48dXNlIGhyZWY9IiNsb2dvLWJvZHkiIGZpbGw9IiMxMjYxRjQiLz48L2c+PC9nPjxnIGlkPSJnZWFyLXBpZWNlLW1pZGRsZSI+PGcgbWFzaz0idXJsKCNsb2dvLWN1dHMpIiBjbGlwLXBhdGg9InVybCgjbG9nby1wYXJ0LTEpIj48dXNlIGhyZWY9IiNsb2dvLWJvZHkiIGZpbGw9IiMwMENGRkYiLz48L2c+PC9nPjxnIGlkPSJnZWFyLXBpZWNlLWJvdHRvbSI+PGcgbWFzaz0idXJsKCNsb2dvLWN1dHMpIiBjbGlwLXBhdGg9InVybCgjbG9nby1wYXJ0LTIpIj48dXNlIGhyZWY9IiNsb2dvLWJvZHkiIGZpbGw9IiMwMDNEQUYiLz48L2c+PC9nPjxnIGlkPSJ3b3JkbWFyay10cmFjZWQiIGZpbGw9IiMwNzEwMTgiIGZpbGwtcnVsZT0iZXZlbm9kZCI+DQogICAgPHBhdGggZD0iTTE1OS4xMjAsMjUuMDAwTDIxNC41NjAsMjUuNTYwTDIxNC41NjAsNDAuMTIwTDE3NS4zNjAsNDAuNjgwTDE3NS4zNjAsNTQuNjgwTDIwOC45NjAsNTUuMjQwTDIwOC45NjAsNjkuMjQwTDE3NS4zNjAsNjkuMjQwTDE3NS4zNjAsODMuODAwTDIxNS4xMjAsODMuODAwTDIxNS4xMjAsOTguOTIwTDE1OC41NjAsOTguOTIwWiIvPg0KICAgIDxwYXRoIGQ9Ik0yNDYuMjAwLDQ0LjMyMFEyNDcuNjAwLDQ0LjA0MCAyNTIuMzYwLDQ0LjMyMEwyNTIuMzYwLDQ0LjMyMFEyNTcuMTIwLDQ0LjYwMCAyNjAuMjAwLDQ2LjAwMEwyNjAuMjAwLDQ2LjAwMFEyNjMuMjgwLDQ3LjQwMCAyNjQuNjgwLDQ4LjUyMEwyNjQuNjgwLDQ4LjUyMFEyNjYuMDgwLDQ5LjY0MCAyNjguMDQwLDUyLjcyMEwyNjguMDQwLDUyLjcyMFEyNzAuMDAwLDU1LjgwMCAyNzAuODQwLDU5LjcyMEwyNzAuODQwLDU5LjcyMFEyNzEuNjgwLDYzLjY0MCAyNzEuNjgwLDgxLjI4MEwyNzEuNjgwLDk4LjkyMEwyNTYuMDAwLDk4LjkyMEwyNTYuMDAwLDgyLjk2MFEyNTYuMDAwLDY3LjAwMCAyNTUuMTYwLDY0Ljc2MEwyNTUuMTYwLDY0Ljc2MFEyNTQuMzIwLDYyLjUyMCAyNTIuMDgwLDYwLjg0MEwyNTIuMDgwLDYwLjg0MFEyNDkuODQwLDU5LjE2MCAyNDUuMzYwLDU5LjQ0MEwyNDUuMzYwLDU5LjQ0MFEyNDAuODgwLDU5LjcyMCAyMzguMDgwLDYyLjgwMEwyMzguMDgwLDYyLjgwMFEyMzUuMjgwLDY1Ljg4MCAyMzUuMDAwLDgyLjQwMEwyMzQuNzIwLDk4LjkyMEwyMTkuMDQwLDk4LjkyMEwyMTkuMDQwLDQ1LjcyMEwyMzQuMTYwLDQ1LjcyMEwyMzQuMTYwLDUxLjMyMEwyMzQuNzIwLDUxLjMyMFEyMzUuMjgwLDUxLjMyMCAyMzcuNTIwLDQ5LjA4MEwyMzcuNTIwLDQ5LjA4MFEyMzkuNzYwLDQ2Ljg0MCAyNDIuMjgwLDQ1LjcyMEwyNDIuMjgwLDQ1LjcyMFEyNDQuODAwLDQ0LjYwMCAyNDYuMjAwLDQ0LjMyMFoiLz4NCiAgICA8cGF0aCBkPSJNMjkxLjg0MCw0NC44ODBRMjk0LjY0MCw0NC4wNDAgMjk5Ljk2MCw0NC4wNDBMMjk5Ljk2MCw0NC4wNDBRMzA1LjI4MCw0NC4wNDAgMzA4LjkyMCw0NS40NDBMMzA4LjkyMCw0NS40NDBRMzEyLjU2MCw0Ni44NDAgMzE0LjI0MCw0OC41MjBMMzE1LjkyMCw1MC4yMDBMMzE2LjQ4MCw0NS43MjBMMzMyLjE2MCw0NS43MjBMMzMyLjE2MCw3MC42NDBRMzMyLjE2MCw5NS41NjAgMzMwLjIwMCwxMDEuMTYwTDMzMC4yMDAsMTAxLjE2MFEzMjguMjQwLDEwNi43NjAgMzI1LjE2MCwxMTAuMTIwTDMyNS4xNjAsMTEwLjEyMFEzMjIuMDgwLDExMy40ODAgMzE5LjU2MCwxMTQuODgwTDMxOS41NjAsMTE0Ljg4MFEzMTcuMDQwLDExNi4yODAgMzEzLjEyMCwxMTcuNDAwTDMxMy4xMjAsMTE3LjQwMFEzMDkuMjAwLDExOC41MjAgMzAxLjM2MCwxMTguNTIwTDMwMS4zNjAsMTE4LjUyMFEyOTMuNTIwLDExOC41MjAgMjg4LjQ4MCwxMTcuMTIwTDI4OC40ODAsMTE3LjEyMFEyODMuNDQwLDExNS43MjAgMjc5LjgwMCwxMTMuNzYwTDI3Ni4xNjAsMTExLjgwMEwyNzYuMTYwLDExMC45NjBRMjc2LjE2MCwxMTAuMTIwIDI3OS4yNDAsMTA0LjgwMEwyODIuMzIwLDk5LjQ4MEwyODguMjAwLDEwMi4yODBRMjk0LjA4MCwxMDUuMDgwIDI5OC44NDAsMTA1LjM2MEwyOTguODQwLDEwNS4zNjBRMzAzLjYwMCwxMDUuNjQwIDMwOC4wODAsMTAzLjk2MEwzMDguMDgwLDEwMy45NjBRMzEyLjU2MCwxMDIuMjgwIDMxNC41MjAsOTkuMjAwTDMxNC41MjAsOTkuMjAwUTMxNi40ODAsOTYuMTIwIDMxNi40ODAsOTIuNzYwTDMxNi40ODAsODkuNDAwTDMxNS4zNjAsOTAuNTIwUTMxNC4yNDAsOTEuNjQwIDMxMC4zMjAsOTMuMzIwTDMxMC4zMjAsOTMuMzIwUTMwNi40MDAsOTUuMDAwIDMwMS42NDAsOTUuMjgwTDMwMS42NDAsOTUuMjgwUTI5Ni44ODAsOTUuNTYwIDI5My4yNDAsOTQuNzIwTDI5My4yNDAsOTQuNzIwUTI4OS42MDAsOTMuODgwIDI4Ny4wODAsOTIuNDgwTDI4Ny4wODAsOTIuNDgwUTI4NC41NjAsOTEuMDgwIDI4Mi4wNDAsODguNTYwTDI4Mi4wNDAsODguNTYwUTI3OS41MjAsODYuMDQwIDI3OC4xMjAsODMuNTIwTDI3OC4xMjAsODMuNTIwUTI3Ni43MjAsODEuMDAwIDI3NS42MDAsNzUuOTYwTDI3NS42MDAsNzUuOTYwUTI3NC40ODAsNzAuOTIwIDI3NS4zMjAsNjUuMzIwTDI3NS4zMjAsNjUuMzIwUTI3Ni4xNjAsNTkuNzIwIDI3Ny41NjAsNTYuOTIwTDI3Ny41NjAsNTYuOTIwUTI3OC45NjAsNTQuMTIwIDI4MC45MjAsNTEuODgwTDI4MC45MjAsNTEuODgwUTI4Mi44ODAsNDkuNjQwIDI4NS45NjAsNDcuNjgwTDI4NS45NjAsNDcuNjgwUTI4OS4wNDAsNDUuNzIwIDI5MS44NDAsNDQuODgwWk0zMDMuODgwLDU3LjQ4MFEzMDAuODAwLDU3LjQ4MCAyOTguMDAwLDU4LjYwMEwyOTguMDAwLDU4LjYwMFEyOTUuMjAwLDU5LjcyMCAyOTMuNTIwLDYxLjY4MEwyOTMuNTIwLDYxLjY4MFEyOTEuODQwLDYzLjY0MCAyOTEuMjgwLDY1LjMyMEwyOTEuMjgwLDY1LjMyMFEyOTAuNzIwLDY3LjAwMCAyOTEuMjgwLDcxLjIwMEwyOTEuMjgwLDcxLjIwMFEyOTEuODQwLDc1LjQwMCAyOTMuNTIwLDc3LjM2MEwyOTMuNTIwLDc3LjM2MFEyOTUuMjAwLDc5LjMyMCAyOTcuNzIwLDgwLjQ0MEwyOTcuNzIwLDgwLjQ0MFEzMDAuMjQwLDgxLjU2MCAzMDMuMzIwLDgxLjU2MEwzMDMuMzIwLDgxLjU2MFEzMDYuNDAwLDgxLjU2MCAzMDguOTIwLDgwLjcyMEwzMDguOTIwLDgwLjcyMFEzMTEuNDQwLDc5Ljg4MCAzMTIuODQwLDc4Ljc2MEwzMTIuODQwLDc4Ljc2MFEzMTQuMjQwLDc3LjY0MCAzMTUuNjQwLDc0Ljg0MEwzMTUuNjQwLDc0Ljg0MFEzMTcuMDQwLDcyLjA0MCAzMTYuNzYwLDY4LjY4MEwzMTYuNzYwLDY4LjY4MFEzMTYuNDgwLDY1LjMyMCAzMTQuODAwLDYyLjgwMEwzMTQuODAwLDYyLjgwMFEzMTMuMTIwLDYwLjI4MCAzMTAuMDQwLDU4Ljg4MEwzMTAuMDQwLDU4Ljg4MFEzMDYuOTYwLDU3LjQ4MCAzMDMuODgwLDU3LjQ4MFoiLz4NCiAgICA8cGF0aCBkPSJNMzY0LjM2MCw0NS4xNjBRMzY2LjMyMCw0NC42MDAgMzY5LjQwMCw0NC42MDBMMzcyLjQ4MCw0NC42MDBMMzcyLjQ4MCw1MC43NjBRMzcyLjQ4MCw1Ni45MjAgMzcyLjIwMCw1OC4wNDBMMzcxLjkyMCw1OS4xNjBMMzY4LjI4MCw1OS40NDBRMzY0LjY0MCw1OS43MjAgMzYyLjEyMCw2MC44NDBMMzYyLjEyMCw2MC44NDBRMzU5LjYwMCw2MS45NjAgMzU3LjkyMCw2My42NDBMMzU3LjkyMCw2My42NDBRMzU2LjI0MCw2NS4zMjAgMzU1LjEyMCw2Ny41NjBMMzU1LjEyMCw2Ny41NjBRMzU0LjAwMCw2OS44MDAgMzUzLjcyMCw4NC4zNjBMMzUzLjQ0MCw5OC45MjBMMzM3Ljc2MCw5OC45MjBMMzM3Ljc2MCw0NS43MjBMMzUyLjg4MCw0NS43MjBMMzUyLjg4MCw1My41NjBMMzU0LjAwMCw1My41NjBMMzU1LjY4MCw1MS4wNDBRMzU3LjM2MCw0OC41MjAgMzU5Ljg4MCw0Ny4xMjBMMzU5Ljg4MCw0Ny4xMjBRMzYyLjQwMCw0NS43MjAgMzY0LjM2MCw0NS4xNjBaIi8+DQogICAgPHBhdGggZD0iTTM5MS41MjAsNDQuODgwUTM5NC44ODAsNDQuMDQwIDQwMC43NjAsNDQuMzIwTDQwMC43NjAsNDQuMzIwUTQwNi42NDAsNDQuNjAwIDQxMS4xMjAsNDYuNTYwTDQxMS4xMjAsNDYuNTYwUTQxNS42MDAsNDguNTIwIDQxOS41MjAsNTIuNzIwTDQxOS41MjAsNTIuNzIwUTQyMy40NDAsNTYuOTIwIDQyNS4xMjAsNjEuOTYwTDQyNS4xMjAsNjEuOTYwUTQyNi44MDAsNjcuMDAwIDQyNi44MDAsNzIuMDQwTDQyNi44MDAsNzcuMDgwTDQyNS45NjAsNzcuNjQwUTQyNS4xMjAsNzguMjAwIDQyMC45MjAsNzguMjAwTDQyMC45MjAsNzguMjAwUTQxNi43MjAsNzguMjAwIDQxMC41NjAsNzcuMDgwTDQxMC41NjAsNzcuMDgwUTQwNC40MDAsNzUuOTYwIDM5NS43MjAsNzYuMjQwTDM4Ny4wNDAsNzYuNTIwTDM4Ny44ODAsNzkuMzIwUTM4OC43MjAsODIuMTIwIDM5MC40MDAsODMuODAwTDM5MC40MDAsODMuODAwUTM5Mi4wODAsODUuNDgwIDM5NC44ODAsODYuNjAwTDM5NC44ODAsODYuNjAwUTM5Ny42ODAsODcuNzIwIDQwMi43MjAsODcuMTYwTDQwMi43MjAsODcuMTYwUTQwNy43NjAsODYuNjAwIDQxMS42ODAsODQuMDgwTDQxNS42MDAsODEuNTYwTDQyNC4wMDAsODkuOTYwTDQyMC45MjAsOTMuMDQwUTQxNy44NDAsOTYuMTIwIDQxMy4wODAsOTguMDgwTDQxMy4wODAsOTguMDgwUTQwOC4zMjAsMTAwLjA0MCA0MDEuODgwLDEwMC4zMjBMNDAxLjg4MCwxMDAuMzIwUTM5NS40NDAsMTAwLjYwMCAzOTIuMDgwLDk5Ljc2MEwzOTIuMDgwLDk5Ljc2MFEzODguNzIwLDk4LjkyMCAzODUuMzYwLDk3LjI0MEwzODUuMzYwLDk3LjI0MFEzODIuMDAwLDk1LjU2MCAzNzguOTIwLDkyLjQ4MEwzNzguOTIwLDkyLjQ4MFEzNzUuODQwLDg5LjQwMCAzNzMuODgwLDg1LjIwMEwzNzMuODgwLDg1LjIwMFEzNzEuOTIwLDgxLjAwMCAzNzEuOTIwLDcyLjYwMEwzNzEuOTIwLDcyLjYwMFEzNzEuOTIwLDY0LjIwMCAzNzMuMzIwLDYwLjg0MEwzNzMuMzIwLDYwLjg0MFEzNzQuNzIwLDU3LjQ4MCAzNzguMDgwLDUzLjU2MEwzNzguMDgwLDUzLjU2MFEzODEuNDQwLDQ5LjY0MCAzODQuODAwLDQ3LjY4MEwzODQuODAwLDQ3LjY4MFEzODguMTYwLDQ1LjcyMCAzOTEuNTIwLDQ0Ljg4MFpNMzcxLjM2MCw0NC42MDBMMzcyLjQ4MCw0NC42MDBMMzcxLjkyMCw1OS4xNjBaTTQwMS4wNDAsNTYuNjQwUTM5OC4yNDAsNTYuMzYwIDM5NS40NDAsNTcuMjAwTDM5NS40NDAsNTcuMjAwUTM5Mi42NDAsNTguMDQwIDM5MC42ODAsNjAuMDAwTDM5MC42ODAsNjAuMDAwUTM4OC43MjAsNjEuOTYwIDM4Ny44ODAsNjQuMjAwTDM4Ny4wNDAsNjYuNDQwTDQxMS42ODAsNjYuNDQwTDQxMC44NDAsNjMuOTIwUTQxMC4wMDAsNjEuNDAwIDQwOC42MDAsNjAuMDAwTDQwOC42MDAsNjAuMDAwUTQwNy4yMDAsNTguNjAwIDQwNS41MjAsNTcuNzYwTDQwNS41MjAsNTcuNzYwUTQwMy44NDAsNTYuOTIwIDQwMS4wNDAsNTYuNjQwWiIvPg0KICAgIDxwYXRoIGQ9Ik00NTcuMzIwLDQ0LjMyMFE0NTguNzIwLDQ0LjA0MCA0NjMuNDgwLDQ0LjMyMEw0NjMuNDgwLDQ0LjMyMFE0NjguMjQwLDQ0LjYwMCA0NzEuMDQwLDQ1LjcyMEw0NzEuMDQwLDQ1LjcyMFE0NzMuODQwLDQ2Ljg0MCA0NzUuODAwLDQ4LjUyMEw0NzUuODAwLDQ4LjUyMFE0NzcuNzYwLDUwLjIwMCA0NzkuNDQwLDUzLjAwMEw0NzkuNDQwLDUzLjAwMFE0ODEuMTIwLDU1LjgwMCA0ODEuOTYwLDU5LjcyMEw0ODEuOTYwLDU5LjcyMFE0ODIuODAwLDYzLjY0MCA0ODIuODAwLDgxLjI4MEw0ODIuODAwLDk4LjkyMEw0NjcuMTIwLDk4LjkyMEw0NjcuMTIwLDgyLjQwMFE0NjcuMTIwLDY1Ljg4MCA0NjUuMTYwLDYzLjA4MEw0NjUuMTYwLDYzLjA4MFE0NjMuMjAwLDYwLjI4MCA0NjAuOTYwLDU5LjQ0MEw0NjAuOTYwLDU5LjQ0MFE0NTguNzIwLDU4LjYwMCA0NTUuMDgwLDU5LjQ0MEw0NTUuMDgwLDU5LjQ0MFE0NTEuNDQwLDYwLjI4MCA0NDkuNzYwLDYxLjY4MEw0NDkuNzYwLDYxLjY4MFE0NDguMDgwLDYzLjA4MCA0NDcuMjQwLDY0Ljc2MEw0NDcuMjQwLDY0Ljc2MFE0NDYuNDAwLDY2LjQ0MCA0NDYuMTIwLDgyLjY4MEw0NDUuODQwLDk4LjkyMEw0MzAuNzIwLDk4LjkyMEw0MzAuNzIwLDQ1LjcyMEw0NDUuODQwLDQ1LjcyMEw0NDUuODQwLDUxLjMyMEw0NDYuOTYwLDUxLjMyMEw0NDYuOTYwLDUwLjc2MFE0NDYuOTYwLDUwLjIwMCA0NDguOTIwLDQ4LjUyMEw0NDguOTIwLDQ4LjUyMFE0NTAuODgwLDQ2Ljg0MCA0NTMuNDAwLDQ1LjcyMEw0NTMuNDAwLDQ1LjcyMFE0NTUuOTIwLDQ0LjYwMCA0NTcuMzIwLDQ0LjMyMFoiLz4NCiAgICA8cGF0aCBkPSJNNTAyLjY4MCw0NC42MDBRNTA1Ljc2MCw0NC4wNDAgNTEwLjUyMCw0NC4wNDBMNTEwLjUyMCw0NC4wNDBRNTE1LjI4MCw0NC4wNDAgNTIwLjg4MCw0NS43MjBMNTIwLjg4MCw0NS43MjBRNTI2LjQ4MCw0Ny40MDAgNTI5Ljg0MCw1MC43NjBMNTI5Ljg0MCw1MC43NjBRNTMzLjIwMCw1NC4xMjAgNTM0LjYwMCw1OC4wNDBMNTM0LjYwMCw1OC4wNDBRNTM2LjAwMCw2MS45NjAgNTM2LjAwMCw4MC40NDBMNTM2LjAwMCw5OC45MjBMNTIyLjAwMCw5OC45MjBMNTIyLjAwMCw5NS4wMDBMNTE4LjkyMCw5Ni45NjBRNTE1Ljg0MCw5OC45MjAgNTEyLjc2MCw5OS43NjBMNTEyLjc2MCw5OS43NjBRNTA5LjY4MCwxMDAuNjAwIDUwNS43NjAsMTAwLjYwMEw1MDUuNzYwLDEwMC42MDBRNTAxLjg0MCwxMDAuNjAwIDQ5Ny4wODAsOTguOTIwTDQ5Ny4wODAsOTguOTIwUTQ5Mi4zMjAsOTcuMjQwIDQ5MC4wODAsOTUuMDAwTDQ5MC4wODAsOTUuMDAwUTQ4Ny44NDAsOTIuNzYwIDQ4Ni43MjAsODkuOTYwTDQ4Ni43MjAsODkuOTYwUTQ4NS42MDAsODcuMTYwIDQ4NS42MDAsODMuNTIwTDQ4NS42MDAsODMuNTIwUTQ4NS42MDAsNzkuODgwIDQ4Ny4wMDAsNzYuNTIwTDQ4Ny4wMDAsNzYuNTIwUTQ4OC40MDAsNzMuMTYwIDQ5MC45MjAsNzAuOTIwTDQ5MC45MjAsNzAuOTIwUTQ5My40NDAsNjguNjgwIDQ5Ny4zNjAsNjcuMjgwTDQ5Ny4zNjAsNjcuMjgwUTUwMS4yODAsNjUuODgwIDUwNi44ODAsNjUuODgwTDUwNi44ODAsNjUuODgwUTUxMi40ODAsNjUuODgwIDUxNi42ODAsNjcuMjgwTDUyMC44ODAsNjguNjgwTDUyMC44ODAsNjYuNzIwUTUyMC44ODAsNjQuNzYwIDUyMC4wNDAsNjIuODAwTDUyMC4wNDAsNjIuODAwUTUxOS4yMDAsNjAuODQwIDUxNi4xMjAsNTguODgwTDUxNi4xMjAsNTguODgwUTUxMy4wNDAsNTYuOTIwIDUwOC4yODAsNTYuOTIwTDUwOC4yODAsNTYuOTIwUTUwMy41MjAsNTYuOTIwIDQ5OC40ODAsNTguNjAwTDQ5My40NDAsNjAuMjgwTDQ5MC4wODAsNDkuMDgwTDQ5NC44NDAsNDcuMTIwUTQ5OS42MDAsNDUuMTYwIDUwMi42ODAsNDQuNjAwWk01MTAuODAwLDc1LjQwMFE1MDguNTYwLDc1LjQwMCA1MDYuMDQwLDc2LjI0MEw1MDYuMDQwLDc2LjI0MFE1MDMuNTIwLDc3LjA4MCA1MDIuMTIwLDc5LjA0MEw1MDIuMTIwLDc5LjA0MFE1MDAuNzIwLDgxLjAwMCA1MDEuMjgwLDg0LjA4MEw1MDEuMjgwLDg0LjA4MFE1MDEuODQwLDg3LjE2MCA1MDQuMzYwLDg4LjU2MEw1MDQuMzYwLDg4LjU2MFE1MDYuODgwLDg5Ljk2MCA1MTAuODAwLDg5LjY4MEw1MTAuODAwLDg5LjY4MFE1MTQuNzIwLDg5LjQwMCA1MTYuNjgwLDg4LjI4MEw1MTYuNjgwLDg4LjI4MFE1MTguNjQwLDg3LjE2MCA1MTkuNzYwLDg1LjIwMEw1MTkuNzYwLDg1LjIwMFE1MjAuODgwLDgzLjI0MCA1MjAuODgwLDgxLjI4MEw1MjAuODgwLDgxLjI4MFE1MjAuODgwLDc5LjMyMCA1MjAuMDQwLDc4LjQ4MEw1MjAuMDQwLDc4LjQ4MFE1MTkuMjAwLDc3LjY0MCA1MTYuMTIwLDc2LjUyMEw1MTYuMTIwLDc2LjUyMFE1MTMuMDQwLDc1LjQwMCA1MTAuODAwLDc1LjQwMFoiLz4NCiAgPC9nPjwvc3ZnPg==" alt="Engrena" width="121" height="31"><span>Customer Success</span></div>
+      <div class="mast-right"><span class="demo"><i></i> Dados fictícios</span><button class="quiet methodology" data-action="method">Metodologia</button></div>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="nav" aria-label="Seções do painel">
+      <div class="nav-inner">
+        <button data-view="overview" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Visão geral</button>
+        <button data-view="clients"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2M16 5a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 4v2"/></svg> Carteira</button>
+        <button data-view="alerts"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 6-3 7-3 8h18c0-1-3-2-3-8M10 20h4"/></svg> Alertas <span id="nav-count"></span></button>
+        <button data-view="reports"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16v-5m5 5V6m5 10V9"/></svg> Relatórios</button>
+      </div>
+    </nav>
+    <main id="main" tabindex="-1">
+      <div id="workspace"></div>
+    </main>
+  </div>
+  <footer class="foot"><span>Engrena</span><span>Demonstração local · dados e registros fictícios</span></footer>
+  <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <p id="notice" role="status"></p>
+  <script>const CS = (() => {
+  const weeks = [
+    ['2026-10-26', '2026-11-01', '26 out a 1 nov'],
+    ['2026-11-02', '2026-11-08', '2 a 8 nov'],
+    ['2026-11-09', '2026-11-15', '9 a 15 nov'],
+    ['2026-11-16', '2026-11-22', '16 a 22 nov'],
+  ];
+  const latest = weeks.length - 1;
+  const asOf = weeks[latest][1];
+  const metrics = [
+    { key: 'service', name: 'Atendimento efetivo', weight: 25, goal: 95, meaning: 'Contatos elegíveis com resposta que orienta ou resolve, pela IA ou pelo atendente.' },
+    { key: 'speed', name: 'Resposta no prazo', weight: 15, goal: 80, meaning: 'Contatos ou transferências atendidos no prazo aplicável à IA ou ao atendente.' },
+    { key: 'quote', name: 'Orçamentos acompanhados', weight: 15, goal: 85, meaning: 'Orçamentos com retorno previsto na semana e acompanhados no prazo.' },
+    { key: 'schedule', name: 'Agenda atualizada', weight: 15, goal: 90, meaning: 'Agendamentos com desfecho devido e registrado: compareceu, faltou ou reagendou.' },
+    { key: 'record', name: 'Serviços registrados', weight: 20, goal: 90, meaning: 'Serviços confirmados como concluídos com registro completo, incluindo valor.' },
+    { key: 'aftercare', name: 'Pós-venda enviado', weight: 10, goal: 95, meaning: 'Envios automáticos confirmados entre os clientes com pós-venda previsto.' },
+  ];
+  const clients = [
+    { id: 'c1', name: 'Oficina Modelo Atlas', initials: 'AT', plan: 'Pacote completo', since: '2026-07-13', monthly: 3900, phase: 'Acompanhamento', owner: 'Coordenação da oficina', next: 'Revisar resultados com a direção' },
+    { id: 'c2', name: 'Autocenter Modelo Horizonte', initials: 'HO', plan: 'Pacote completo', since: '2026-08-10', monthly: 3600, phase: 'Acompanhamento', owner: 'Liderança do atendimento', next: 'Revisar os retornos de orçamento' },
+    { id: 'c3', name: 'Oficina Modelo Impulso', initials: 'IM', plan: 'Pacote completo', since: '2026-08-03', monthly: 4200, phase: 'Acompanhamento', owner: 'Direção da oficina', next: 'Alinhar a recuperação do atendimento' },
+    { id: 'c4', name: 'Autocenter Modelo Rota', initials: 'RO', plan: 'ChatEngrena', since: '2026-09-14', monthly: 1600, phase: 'Acompanhamento', owner: 'Liderança do atendimento', next: 'Conferir a rotina de agenda' },
+    { id: 'c5', name: 'Oficina Modelo Circuito', initials: 'CI', plan: 'ChatEngrena', since: '2026-09-28', monthly: 1600, phase: 'Acompanhamento', owner: 'Coordenação da oficina', next: 'Acompanhar a rotina de pós-venda' },
+    { id: 'c6', name: 'Autocenter Modelo Ponto', initials: 'PO', plan: 'Pacote completo', since: '2026-11-09', monthly: 3300, phase: 'Implantação', owner: 'Direção da oficina', next: 'Conferir a primeira semana completa' },
+    { id: 'c7', name: 'Oficina Modelo Nexo', initials: 'NE', plan: 'Assessoria', since: '2026-09-21', monthly: 2850, phase: 'Acompanhamento', owner: 'Coordenação da oficina', next: 'Conferir a qualidade dos contatos' },
+    { id: 'c8', name: 'Autocenter Modelo Eixo', initials: 'EI', plan: 'ChatEngrena', since: '2026-08-31', monthly: 1750, phase: 'Acompanhamento', owner: 'Liderança do atendimento', next: 'Validar a integração de mensagens' },
+  ];
+
+  function sample(rates, volume, options = {}) {
+    const base = options.denominators || [volume, volume, Math.round(volume * .58), Math.round(volume * .4), Math.round(volume * .32), Math.round(volume * .29)];
+    return {
+      measures: Object.fromEntries(metrics.map(({ key }, index) => {
+        const total = base[index];
+        const rate = rates[index];
+        const item = rate == null ? { state: 'missing', done: 0, total: 0 } :
+          { state: 'count', done: Math.round(total * rate / 100), total };
+        return [key, item];
+      })),
+      channels: options.channels || [Math.round(volume * .45), Math.round(volume * .37), volume - Math.round(volume * .45) - Math.round(volume * .37)],
+      calls: options.calls === undefined ? [Math.round(volume * .21), Math.round(volume * .15), Math.round(volume * .11)] : options.calls,
+      speedAvg: options.speed ?? null,
+      quotes: options.quotes ?? null,
+      booked: options.booked ?? null,
+      linkedBookings: options.linkedBookings ?? null,
+      value: options.value ?? null,
+      scoreFeedback: options.feedback ?? null,
+      feedbackNote: options.note || '',
+      ownerSignal: options.ownerSignal ?? true,
+      criticalFailure: options.failure ?? false,
+      cancel: options.cancel ?? false,
+      overdue: options.overdue ?? 0,
+      openQuotes: options.openQuotes ?? Math.max(0, base[2] - Math.round(base[2] * (rates[2] ?? 100) / 100)),
+      useActions: options.actions ?? Math.round(volume * 2.5),
+      lastNote: options.last || 'Indicadores revisados na semana',
+    };
+  }
+
+  const seed = {
+    c1: [
+      sample([90, 78, 82, 86, 89, 90], 73, { feedback: 4 }),
+      sample([93, 79, 82, 90, 90, 95], 77, { feedback: 4 }),
+      sample([95, 84, 89, 94, 95, 96], 79, { feedback: 5 }),
+      sample([98, 92, 91, 96, 96, 98], 84, { feedback: 5, speed: 7, quotes: 52, booked: 35, linkedBookings: 30, value: 36540, last: 'Pós-venda conferido em 22 nov', note: 'A direção ficou satisfeita com a previsibilidade da agenda.' }),
+    ],
+    c2: [
+      sample([86, 74, 78, 84, 80, 78], 60, { feedback: 4 }),
+      sample([81, 70, 73, 83, 72, 76], 62, { feedback: 4 }),
+      sample([79, 66, 70, 79, 75, 73], 62, { feedback: 4 }),
+      sample([82, 63, 56, 75, 70, 61], 64, { feedback: 4, overdue: 2, speed: 22, quotes: 39, booked: 26, linkedBookings: 17, value: 18460, last: 'Revisão de orçamentos em 21 nov', note: 'A equipe relata dificuldade em distribuir a fila de retornos.' }),
+    ],
+    c3: [
+      sample([78, 71, 77, 72, 74, 75], 61, { feedback: 4 }),
+      sample([74, 60, 70, 72, 65, 68], 64, { feedback: 4 }),
+      sample([60, 49, 57, 55, 53, 57], 64, { feedback: 3, overdue: 3, actions: 150 }),
+      sample([49, 30, 33, 44, 30, 40], 60, { feedback: 2, overdue: 8, cancel: true, actions: 75, speed: 44, quotes: 23, booked: 18, linkedBookings: 11, value: 7200, last: 'Sinal de cancelamento em 20 nov', note: 'A direção sinalizou que considera interromper o contrato.' }),
+    ],
+    c4: [
+      sample([59, 46, 52, 54, 51, 58], 45, { feedback: 3, overdue: 3 }),
+      sample([67, 58, 59, 61, 64, 65], 47, { feedback: 4, overdue: 1 }),
+      sample([77, 68, 73, 71, 70, 72], 49, { feedback: 4 }),
+      sample([91, 83, 86, 91, 90, 92], 50, { feedback: 5, speed: 10, quotes: 31, booked: 20, linkedBookings: 16, value: 17840, channels: [8, 5, 37], last: 'Agenda validada em 21 nov' }),
+    ],
+    c5: [
+      sample([93, 82, 86, 91, 91, 91], 55, { feedback: 4 }),
+      sample([95, 87, 85, 91, 93, 93], 52, { feedback: 4 }),
+      sample([94, 80, 84, 90, 91, 90], 56, { feedback: 5 }),
+      sample([93, 85, 85, 88, 92, 92], 56, { feedback: 5, speed: 11, quotes: 31, booked: 23, linkedBookings: 20, value: 21980, channels: [6, 4, 46], last: 'Retornos validados em 20 nov' }),
+    ],
+    c6: [
+      null,
+      null,
+      sample([100, null, null, 100, null, null], 4, { ownerSignal: false, calls: null }),
+      sample([75, 75, 50, 100, null, 100], 4, { ownerSignal: false, calls: null, quotes: 2, booked: 1, last: 'Amostra inicial em 20 nov' }),
+    ],
+    c7: [
+      sample([], 48, { feedback: 4, ownerSignal: true, calls: null }),
+      sample([], 52, { feedback: 4, ownerSignal: true, calls: null }),
+      sample([], 55, { feedback: 5, ownerSignal: true, calls: null }),
+      sample([], 48, { feedback: 5, ownerSignal: true, calls: null, last: 'Qualidade da demanda revisada em 21 nov', note: 'O responsável confirmou que a origem dos contatos está sendo revisada.' }),
+    ],
+    c8: [
+      sample([91, 85, 85, 85, 89, 88], 41, { feedback: 4 }),
+      sample([90, 83, 85, 85, 87, 89], 40, { feedback: 4 }),
+      sample([93, 86, 88, 90, 90, 91], 41, { feedback: 5 }),
+      sample([null, 88, 88, 88, 90, null], 41, { feedback: 5, failure: true, calls: null, channels: [4, 4, 33], last: 'Falha de integração em 22 nov', note: 'Há lacuna no registro da caixa de entrada durante a falha.' }),
+    ],
+  };
+  const cause = {
+    cancellation: { title: 'Intenção de cancelamento', priority: 'Crítica', metric: 'Risco de cancelamento', owner: 'Gestão da Engrena', action: 'Ouvir a direção, alinhar expectativas e acordar um plano de recuperação.' },
+    failure: { title: 'Falha técnica', priority: 'Alta', metric: 'Integração ou automação', owner: 'Suporte e implantação', action: 'Reproduzir a falha, aplicar contingência e confirmar o funcionamento com um teste.' },
+    overdue: { title: 'Contato sem resposta', priority: 'Alta', metric: 'Atendimento efetivo', owner: 'Liderança da oficina', action: 'Assumir as conversas pendentes, priorizar as mais antigas e conferir a fila.' },
+    satisfaction: { title: 'Insatisfação', priority: 'Alta', metric: 'Satisfação', owner: 'Customer Success', action: 'Ouvir a causa, combinar uma correção e colher novo retorno da oficina.' },
+    quote: { title: 'Retornos vencidos', priority: 'Média', metric: 'Orçamentos acompanhados', owner: 'Liderança da oficina', action: 'Distribuir os retornos atrasados, atualizar os prazos e conferir a execução.' },
+    adoption: { title: 'Queda de utilização', priority: 'Média', metric: 'Ações operacionais', owner: 'Customer Success', action: 'Verificar o volume, a rotina, os acessos e a disponibilidade da integração.' },
+  };
+  const priorities = { 'Crítica': 0, 'Alta': 1, 'Média': 2 };
+  const roles = ['Customer Success', 'Gestão da Engrena', 'Tráfego pago', 'Suporte e implantação', 'Liderança da oficina', 'Atendimento da oficina'];
+  const firstActions = [
+    { id: 'i1', client: 'c3', alert: 'c3/3/cancellation', date: '2026-11-20', due: '2026-11-23', role: 'Gestão da Engrena', status: 'Em andamento', text: 'Agendar conversa com a direção e propor uma primeira correção no atendimento.', diagnosis: 'Intenção de cancelar', source: 'A direção sinalizou a intenção em conversa com CS.', reason: '', evidence: '', closed: '' },
+    { id: 'i2', client: 'c2', alert: 'c2/3/quote', date: '2026-11-19', due: '2026-11-20', role: 'Liderança da oficina', status: 'Em andamento', text: 'Distribuir os retornos pendentes por atendente e revisar a fila.', diagnosis: 'Fila de orçamentos atrasada', source: 'Retornos vencidos no recorte da semana.', reason: 'Fila de retornos sem responsável definido.', evidence: '', closed: '' },
+    { id: 'i3', client: 'c4', alert: '', date: '2026-11-17', due: '2026-11-21', role: 'Customer Success', status: 'Resolvido', text: 'Revisar o registro de faltas e reagendamentos com a equipe.', diagnosis: 'Desfechos faltando na agenda', source: 'Amostra de agendamentos sem atualização.', reason: 'Rotina de conferência de agenda não estava definida.', evidence: 'A equipe registrou corretamente o desfecho dos casos revisados.', closed: '2026-11-21' },
+  ];
+
+  function score(client, row) {
+    if (client.plan === 'Assessoria' || !row) {
+      return { value: null, coverage: null, label: client.plan === 'Assessoria' ? 'Não se aplica' : 'Sem base', details: [] };
+    }
+    const details = metrics.map(metric => {
+      const item = row.measures[metric.key];
+      const empty = item.state === 'count' && item.total === 0;
+      const valid = item.state === 'count' && item.total >= 5;
+      const rate = item.state === 'count' && item.total ? 100 * item.done / item.total : null;
+      return { ...metric, ...item, applicable: !empty, valid, rate, points: valid ? Math.min(rate / metric.goal, 1) * metric.weight : null };
+    });
+    const applicable = details.filter(metric => metric.applicable).reduce((sum, metric) => sum + metric.weight, 0);
+    const valid = details.filter(metric => metric.valid).reduce((sum, metric) => sum + metric.weight, 0);
+    const coverage = applicable ? 100 * valid / applicable : 0;
+    const eligible = coverage >= 70 && details[0].valid;
+    const value = eligible ? Math.round(10 * Math.max(1, 10 * details.reduce((sum, metric) => sum + (metric.points ?? 0), 0) / valid)) / 10 : null;
+    const label = value === null ? 'Sem base' : value >= 8.5 ? 'Saudável' : value >= 6 ? 'Atenção' : 'Crítico';
+    return { value, coverage, label, details };
+  }
+
+  function baseline(client, index, edits) {
+    return edits?.[client.id] && index === latest ? edits[client.id] : seed[client.id][index];
+  }
+
+  function detect(client, index, edits) {
+    const row = baseline(client, index, edits);
+    if (!row) return [];
+    const prev = index > 0 ? baseline(client, index - 1, edits) : null;
+    const date = weeks[index][1];
+    const flags = [];
+    const add = (code, evidence) => flags.push({ ...cause[code], key: code, client: client.id, date, id: [client.id, index, code].join('/'), evidence });
+    if (row.cancel) add('cancellation', 'A direção manifestou intenção de encerrar o contrato.');
+    if (row.criticalFailure) add('failure', 'Foi registrada uma falha crítica ainda aberta na semana.');
+    if (row.overdue > 0 && client.plan !== 'Assessoria') add('overdue', `${row.overdue} contatos acima de 60 minutos úteis na fila da semana.`);
+    if (row.scoreFeedback !== null && row.scoreFeedback <= 3) add('satisfaction', `A satisfação registrada foi de ${row.scoreFeedback} em 5.`);
+    const quote = row.measures.quote;
+    if (client.plan !== 'Assessoria' && quote.state === 'count' && quote.total >= 5 && 5 * row.openQuotes > quote.total) {
+      add('quote', `${row.openQuotes} de ${quote.total} retornos venceram e seguem pendentes.`);
+    }
+    const volume = entry => entry.channels.reduce((acc, count) => acc + count, 0);
+    if (client.plan !== 'Assessoria' && prev && volume(prev) >= 5 && prev.useActions >= 5 && volume(row) >= 5 &&
+      Math.abs(volume(row) / volume(prev) - 1) <= .25 && row.useActions / prev.useActions < .6 && !row.criticalFailure && !prev.criticalFailure) {
+      add('adoption', `As ações caíram de ${prev.useActions} para ${row.useActions} com volume de contatos semelhante.`);
+    }
+    return flags.sort((left, right) => priorities[left.priority] - priorities[right.priority]);
+  }
+
+  function alertList(index, edits, seen = {}) {
+    const active = clients.flatMap(client => detect(client, index, edits));
+    if (index !== latest) return active;
+    const activeIds = new Set(active.map(alert => alert.id));
+    const initial = Object.fromEntries(clients.flatMap(client => detect(client, index, {})).map(alert => [alert.id, alert]));
+    const updated = Object.values({ ...initial, ...seen })
+      .filter(alert => !activeIds.has(alert.id) && alert.date === asOf)
+      .map(alert => {
+        const row = edits?.[alert.client];
+        const unverified = (alert.key === 'satisfaction' && row?.scoreFeedback == null) ||
+          (alert.key === 'quote' && (row?.measures.quote.state !== 'count' ||
+            (row.measures.quote.total < 5 && row.openQuotes > 0))) ||
+          (alert.key === 'adoption' && row?.criticalFailure);
+        return { ...alert, cleared: !unverified, unverified: !!unverified };
+      });
+    return [...active, ...updated];
+  }
+
+  function risk(client, row, snapshot, alerts) {
+    if (!row) return 'Em avaliação';
+    if (row.cancel || row.criticalFailure || alerts.some(alert => alert.key === 'satisfaction' && !alert.cleared)) return 'Alto';
+    if (alerts.some(alert => !alert.cleared) || snapshot.label === 'Crítico') return 'Atenção';
+    return client.plan === 'Assessoria' ? row.ownerSignal ? 'Baixo' : 'Em avaliação' :
+      snapshot.value !== null ? 'Baixo' : 'Em avaliação';
+  }
+
+  function portfolio(index, edits = {}, seen = {}) {
+    const signals = alertList(index, edits, seen).filter(alert => !alert.cleared);
+    return clients.filter(client => client.since <= weeks[index][1]).map(client => {
+      const row = baseline(client, index, edits);
+      const adoption = score(client, row);
+      const alerts = signals.filter(alert => alert.client === client.id);
+      return { ...client, row, adoption, alerts, risk: risk(client, row, adoption, alerts) };
+    });
+  }
+
+  function aggregate(list) {
+    const rated = list.filter(client => client.adoption.value !== null);
+    const surveyed = list.filter(client => client.row?.scoreFeedback != null);
+    const vulnerable = list.filter(client => client.risk === 'Alto');
+    return {
+      count: list.length, rated: rated.length, surveyed: surveyed.length,
+      healthy: list.filter(client => client.adoption.label === 'Saudável').length,
+      attention: list.filter(client => client.adoption.label === 'Atenção').length,
+      critical: list.filter(client => client.adoption.label === 'Crítico').length,
+      pending: list.filter(client => client.adoption.label === 'Sem base').length,
+      na: list.filter(client => client.adoption.label === 'Não se aplica').length,
+      avg: rated.length ? rated.reduce((sum, client) => sum + client.adoption.value, 0) / rated.length : null,
+      csat: surveyed.length ? surveyed.reduce((sum, client) => sum + client.row.scoreFeedback, 0) / surveyed.length : null,
+      atRisk: vulnerable.length, monthly: vulnerable.reduce((sum, client) => sum + client.monthly, 0),
+      alerts: list.reduce((sum, client) => sum + client.alerts.length, 0),
+    };
+  }
+
+  return { weeks, latest, asOf, metrics, seed, clients, cause, roles, firstActions, priorities, baseline, score, alertList, portfolio, aggregate };
+})();
+if (typeof module !== 'undefined') module.exports = CS;
+</script>
+  <script>const workspace = document.querySelector('#workspace');
+const main = document.querySelector('#main');
+const dialog = document.querySelector('#dialog');
+const dialogContent = document.querySelector('#dialog-content');
+const storeKey = 'engrena-customer-success-demo-v1';
+const number = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const whole = new Intl.NumberFormat('pt-BR');
+const money = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+const longDate = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeZone: 'UTC' });
+const searchKey = value => String(value).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().trim();
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const n = value => value == null ? 'Indisponível' : whole.format(value);
+const decimal = value => value == null ? 'Sem base' : number.format(value);
+const reais = value => value == null ? 'Indisponível' : money.format(value);
+const date = value => value ? longDate.format(new Date(`${value}T12:00:00Z`)) : '';
+const weekLabel = index => `${CS.weeks[index][2]} de 2026`;
+const moods = { 'Saudável': 'green', 'Baixo': 'green', 'Resolvido': 'green', 'Normalizado': 'green', 'Atenção': 'amber', 'Média': 'amber', 'Em andamento': 'amber', 'Crítico': 'red', 'Alto': 'red', 'Alta': 'red', 'Crítica': 'red', 'Não se aplica': 'muted' };
+const tag = label => `<span class="tag ${moods[label] || 'neutral'}"><i aria-hidden="true"></i>${escapeHtml(label)}</span>`;
+const option = (value, text, selected) => `<option value="${escapeHtml(value)}"${String(value) === String(selected) ? ' selected' : ''}>${escapeHtml(text)}</option>`;
+const choices = (values, selected) => values.map(item => Array.isArray(item) ? option(item[0], item[1], selected) : option(item, item, selected)).join('');
+const button = (type, text, value = '', extra = 'button secondary') => `<button type="button" class="${extra}" data-action="${type}" data-value="${escapeHtml(value)}">${escapeHtml(text)}</button>`;
+const catalog = Object.fromEntries(CS.clients.map(client => [client.id, client]));
+const persistent = loadStorage();
+let { edits, interventions, seen } = persistent;
+let index = CS.latest;
+let currentView = 'overview';
+let clientId = '';
+let priorView = 'clients';
+let noticeTimer;
+let modalSource;
+const defaultFilters = { search: '', label: '', plan: '', risk: '', sort: 'risk', tenure: '', action: '', priority: '', alertClient: '', alertType: '', alertState: 'Ativos' };
+let filters = { ...defaultFilters };
+
+function loadStorage() {
+  const empty = { edits: {}, interventions: structuredClone(CS.firstActions), seen: {} };
+  try {
+    const raw = JSON.parse(localStorage.getItem(storeKey));
+    return raw && Array.isArray(raw.interventions) && raw.edits && raw.seen ? raw : empty;
+  } catch {
+    return empty;
+  }
+}
+
+function notify(message) {
+  const notice = document.querySelector('#notice');
+  notice.textContent = message;
+  clearTimeout(noticeTimer);
+  noticeTimer = setTimeout(() => { notice.textContent = ''; }, 5200);
+}
+
+function save(message) {
+  try {
+    localStorage.setItem(storeKey, JSON.stringify({ edits, interventions, seen }));
+    notify(message);
+  } catch {
+    notify('Alteração aplicada nesta sessão. O navegador bloqueou o armazenamento local.');
+  }
+}
+
+function portfolio() { return CS.portfolio(index, edits, seen); }
+function listAlerts() { return CS.alertList(index, edits, seen).sort((a, b) => CS.priorities[a.priority] - CS.priorities[b.priority]); }
+
+function alertStatus(alert) {
+  if (alert.cleared) return 'Normalizado';
+  if (alert.unverified) return 'A verificar';
+  const linked = interventions.filter(item => item.alert === alert.id);
+  return linked.some(item => item.status !== 'Resolvido') ? 'Em andamento' : 'Em aberto';
+}
+
+function interval() {
+  return `<label class="period no-print">Semana de acompanhamento<select data-period>${choices(CS.weeks.map((item, i) => [i, item[2]]).reverse(), index)}</select></label>`;
+}
+
+function page(title, description, actions = interval()) {
+  return `<div class="pagehead"><div><h1>${title}</h1><p class="lead">${description}</p></div>${actions}</div>`;
+}
+
+function panelHead(title, description = '', actions = '') {
+  return `<div class="panel-head"><div><h2>${title}</h2>${description ? `<p>${description}</p>` : ''}</div>${actions}</div>`;
+}
+
+function kpi(label, value, detail, kind = '') {
+  return `<div class="kpi ${kind}"><p>${label}</p><strong>${value}</strong><small>${detail}</small></div>`;
+}
+
+function chart(id, values, kind = 'portfolio') {
+  const width = 674;
+  const left = 42;
+  const right = 610;
+  const top = 19;
+  const bottom = 149;
+  const x = i => left + (right - left) * i / (CS.weeks.length - 1);
+  const y = value => bottom - value / 10 * (bottom - top);
+  const points = values.flatMap((value, i) => value === null ? [] : [{ value, i, x: x(i), y: y(value) }]);
+  const contiguous = points.length > 1 && points[points.length - 1].i - points[0].i + 1 === points.length;
+  let d = '';
+  points.forEach((point, i) => {
+    d += `${i > 0 && points[i - 1].i === point.i - 1 ? 'L' : 'M'} ${point.x} ${point.y} `;
+  });
+  const selected = points.find(point => point.i === index);
+  const grid = [10, 7.5, 5, 2.5, 0].map(value => `<line class="grid" x1="${left}" x2="${right}" y1="${y(value)}" y2="${y(value)}"/><text x="${left - 10}" y="${y(value) + 4}" text-anchor="end">${value.toLocaleString('pt-BR')}</text>`).join('');
+  const controls = points.map(point => {
+    const active = point.i === index;
+    return `<g class="chart-trigger ${active ? 'current' : ''}" role="button" tabindex="0" aria-pressed="${active}" aria-label="Semana ${CS.weeks[point.i][2]}, nota ${decimal(point.value)}" data-action="week" data-value="${point.i}">
+      <title>${CS.weeks[point.i][2]} · ${decimal(point.value)}</title>
+      <circle cx="${point.x}" cy="${point.y}" r="20" fill="transparent"/>
+      <circle class="point-halo" cx="${point.x}" cy="${point.y}" r="11"/>
+      <circle class="point" cx="${point.x}" cy="${point.y}" r="5.5"/>
+    </g>`;
+  }).join('');
+  return `<div class="chart-wrap">
+    ${points.length ? `<svg viewBox="0 0 ${width} 181" class="chart" role="group" aria-labelledby="${id}">
+      <title id="${id}">Histórico ${kind === 'portfolio' ? 'da média da carteira' : 'da nota da oficina'} por semana</title>
+      <g aria-hidden="true">${grid}
+      ${contiguous ? `<path class="chart-area" d="${d}L ${points.at(-1).x} ${bottom} L ${points[0].x} ${bottom} Z"/>` : ''}
+      ${selected ? `<line class="selection" x1="${selected.x}" x2="${selected.x}" y1="${top}" y2="${bottom}"/>` : ''}
+      <path class="chart-line" d="${d}"/>
+      ${CS.weeks.map((w, i) => {
+        const short = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+          .format(new Date(`${w[0]}T12:00:00Z`)).replace(' de ', ' ').replace('.', '');
+        const selectedClass = i === index ? ' selected-label' : '';
+        return `<text x="${x(i)}" y="174" text-anchor="middle" class="chart-long${selectedClass}">${w[2]}</text>
+          <text x="${x(i)}" y="174" text-anchor="middle" class="chart-short${selectedClass}">${short}</text>`;
+      }).join('')}</g>
+      ${controls}</svg>` : '<p class="empty">A série ainda não tem notas calculáveis.</p>'}
+    <div class="chart-foot"><span>${weekLabel(index)}</span><strong>${values[index] === null ? 'Sem base na semana' : `Nota ${decimal(values[index])} de 10`}</strong></div>
+  </div>`;
+}
+
+function distribution(total) {
+  const groups = [['Saudável', total.healthy], ['Atenção', total.attention], ['Crítico', total.critical], ['Sem base', total.pending], ['Não se aplica', total.na]];
+  return `<div class="distribution">
+    <div class="segments" aria-hidden="true">${groups.filter(([, count]) => count).map(([label, count]) => `<span class="${moods[label] || 'neutral'}" style="width:${count * 100 / total.count}%"></span>`).join('')}</div>
+    ${groups.map(([label, count]) => `<div class="dist-row">${tag(label)}<strong>${count}</strong></div>`).join('')}
+  </div>`;
+}
+
+function overview() {
+  const totals = CS.aggregate(portfolio());
+  const history = CS.weeks.map((_, i) => CS.aggregate(CS.portfolio(i, edits, seen)).avg);
+  const delta = index > 0 && history[index] != null && history[index - 1] != null ? Math.round((history[index] - history[index - 1]) * 10) / 10 : null;
+  const deltaCopy = delta === null ? 'Sem comparação anterior' : `${delta > 0 ? '+' : ''}${number.format(delta)} em relação à semana anterior`;
+  const active = listAlerts().filter(entry => !entry.cleared);
+  const shortlist = active.slice(0, 4);
+  const overdue = interventions.filter(item => item.date <= CS.weeks[index][1] && item.due < CS.weeks[index][1] && (!item.closed || item.closed > CS.weeks[index][1])).length;
+  return `${page('Visão geral', 'Acompanhe a carteira e priorize as próximas intervenções.')}
+  <div class="kpis">
+    ${kpi('Clientes ativos', totals.count, `${totals.rated} com nota de adoção`)}
+    ${kpi('Adoção média', decimal(totals.avg), deltaCopy)}
+    ${kpi('Alertas pendentes', totals.alerts, `${active.filter(item => item.priority === 'Crítica').length} de prioridade crítica`)}
+    ${kpi('Receita mensal em risco', reais(totals.monthly), `${totals.atRisk} contratos com risco alto`, 'risk')}
+  </div>
+  <div class="pair">
+    <section class="panel">${panelHead('Evolução da adoção', 'Média das oficinas com nota calculável.')}${chart('portfolio-chart', history)}</section>
+    <section class="panel">${panelHead('Saúde da carteira', totals.rated ? `${Math.round(totals.healthy * 100 / totals.rated)}% saudáveis entre as ${totals.rated} oficinas com nota.` : 'Sem oficinas com nota na semana.')}${distribution(totals)}</section>
+  </div>
+  <div class="overview-bottom">
+    <section class="panel mobile-priority">${panelHead('Prioridades da semana', '', button('view', 'Ver alertas', 'alerts', 'quiet'))}
+      ${shortlist.length ? `<ul class="action-list">${shortlist.map(item => `<li>${tag(item.priority)}<div><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(catalog[item.client].name)}</small></div><small>${escapeHtml(item.action)}</small>${button('alert-focus', 'Abrir', item.id, 'link-button')}</li>`).join('')}</ul>` : '<p class="empty">Nenhum alerta ativo nesta semana.</p>'}
+    </section>
+    <section class="panel next-panel">
+      <h2>Intervenções</h2>
+      <div class="summary-line"><strong>${overdue} com prazo vencido</strong><p>Revise as ações em aberto na semana selecionada.</p></div>
+      <p>A satisfação média foi de <strong>${decimal(totals.csat)}${totals.csat === null ? '' : ' de 5'}</strong> entre ${totals.surveyed} oficinas que responderam.</p>
+      ${button('view', 'Abrir relatório semanal', 'reports', 'quiet')}
+    </section>
+  </div>`;
+}
+
+function selectFilter(key, label, values) {
+  return `<label class="field">${label}<select data-filter="${key}">${choices(values, filters[key])}</select></label>`;
+}
+
+function filteredClients() {
+  const risks = { Alto: 0, Atenção: 1, 'Em avaliação': 2, Baixo: 3 };
+  return portfolio().filter(client => {
+    const period = CS.weeks[index][1];
+    const openAction = interventions.some(item => item.client === client.id && item.date <= period && (!item.closed || item.closed > period));
+    const age = (Date.parse(period) - Date.parse(client.since)) / 86400000;
+    return searchKey(client.name).includes(searchKey(filters.search)) &&
+      (!filters.label || client.adoption.label === filters.label) &&
+      (!filters.plan || client.plan === filters.plan) &&
+      (!filters.risk || client.risk === filters.risk) &&
+      (!filters.tenure || (filters.tenure === 'initial' ? age < 30 : age >= 30)) &&
+      (!filters.action || (filters.action === 'alerts' ? client.alerts.length > 0 : openAction));
+  }).sort((a, b) => {
+    if (filters.sort === 'name') return a.name.localeCompare(b.name, 'pt-BR');
+    if (filters.sort === 'low') return (a.adoption.value ?? Infinity) - (b.adoption.value ?? Infinity);
+    if (filters.sort === 'high') return (b.adoption.value ?? -Infinity) - (a.adoption.value ?? -Infinity);
+    return risks[a.risk] - risks[b.risk] || b.alerts.length - a.alerts.length;
+  });
+}
+
+function clientTable() {
+  const list = filteredClients();
+  const numericSort = ['low', 'high'].includes(filters.sort) ? (filters.sort === 'low' ? 'ascending' : 'descending') : 'none';
+  const riskSort = filters.sort === 'risk' ? 'other' : 'none';
+  const nameSort = filters.sort === 'name' ? 'ascending' : 'none';
+  return list.length ? `<div class="table-wrap" role="region" tabindex="0" aria-label="Tabela da carteira com rolagem horizontal se necessário"><table aria-label="Oficinas monitoradas">
+      <thead><tr><th scope="col" aria-sort="${nameSort}">Oficina</th><th scope="col" aria-sort="${numericSort}">Adoção</th><th scope="col">Saúde</th><th scope="col">Satisfação</th><th scope="col" aria-sort="${riskSort}">Risco</th><th scope="col">Alertas</th><th scope="col">Próxima ação</th></tr></thead><tbody>
+      ${list.map(client => {
+        const pending = interventions.filter(item => item.client === client.id && item.date <= CS.weeks[index][1] && (!item.closed || item.closed > CS.weeks[index][1])).sort((a, b) => a.due.localeCompare(b.due))[0];
+        const next = pending?.text || client.alerts[0]?.action || client.next;
+        return `<tr><td>${button('client', client.name, client.id, 'client-link')}<small>${escapeHtml(client.plan)} · ${escapeHtml(client.owner)}</small><small>Desde ${date(client.since)}</small></td>
+         <td><strong>${client.adoption.value == null ? 'n/d' : decimal(client.adoption.value)}</strong>${client.adoption.coverage !== null ? `<small>${Math.round(client.adoption.coverage)}% de cobertura</small>` : ''}</td>
+         <td>${tag(client.adoption.label)}</td><td>${client.row?.scoreFeedback == null ? 'n/d' : `${client.row.scoreFeedback} de 5`}</td>
+         <td>${tag(client.risk)}</td><td>${client.alerts.length}</td><td>${escapeHtml(next)}<small>${escapeHtml(client.row?.lastNote || 'Semana sem dados')}</small></td></tr>`;
+      }).join('')}</tbody></table></div><div class="table-result" role="status">${list.length} oficinas com os filtros atuais</div>` :
+    `<p class="empty" role="status">Nenhuma oficina corresponde aos filtros. ${button('clear', 'Limpar filtros', '', 'quiet')}</p>`;
+}
+
+function clientsView() {
+  return `${page('Carteira de clientes', 'Revise a operação por oficina e acompanhe as ações em aberto.')}
+  <section class="panel">${panelHead('Oficinas monitoradas')}
+    <div class="filter-row">
+      <label class="field search">Buscar oficina<input type="search" data-filter="search" value="${escapeHtml(filters.search)}" placeholder="Digite o nome da oficina"></label>
+      ${selectFilter('label', 'Saúde', [['', 'Todas'], 'Saudável', 'Atenção', 'Crítico', 'Sem base', 'Não se aplica'])}
+      ${selectFilter('plan', 'Serviço', [['', 'Todos'], 'Pacote completo', 'ChatEngrena', 'Assessoria'])}
+      ${selectFilter('risk', 'Risco', [['', 'Todos'], 'Alto', 'Atenção', 'Em avaliação', 'Baixo'])}
+      ${selectFilter('tenure', 'Tempo de carteira', [['', 'Qualquer'], ['initial', 'Menos de 30 dias'], ['mature', '30 dias ou mais']])}
+      ${selectFilter('action', 'Acompanhamento', [['', 'Todos'], ['alerts', 'Com alertas'], ['pending', 'Com ações em aberto']])}
+      ${selectFilter('sort', 'Ordenar por', [['risk', 'Risco e alertas'], ['name', 'Nome da oficina'], ['low', 'Menor nota'], ['high', 'Maior nota']])}
+      ${button('clear', 'Limpar filtros', '', 'quiet')}
+    </div><div id="client-table">${clientTable()}</div>
+  </section>`;
+}
+
+function alertCard(alert) {
+  const status = alertStatus(alert);
+  const linked = interventions.filter(item => item.alert === alert.id);
+  const owner = linked.find(item => item.status !== 'Resolvido');
+  return `<li class="alert-card" data-alert-id="${escapeHtml(alert.id)}" tabindex="-1">
+    <div class="row">${tag(alert.priority)}${tag(status)}</div>
+    <h3>${escapeHtml(alert.title)}</h3>
+    <p><strong>${escapeHtml(catalog[alert.client].name)}</strong> · Semana até ${date(alert.date)} · ${escapeHtml(alert.metric)}</p>
+    <p>${escapeHtml(alert.cleared ? 'A atualização da base da demonstração normalizou este sinal.' : alert.evidence)}</p>
+    ${alert.unverified ? '<p>A base atual não permite confirmar a resolução. Confira a fonte antes de concluir.</p>' : ''}
+    ${!alert.cleared ? `<p><strong>Ação sugerida</strong> ${escapeHtml(alert.action)}</p>` : ''}
+    ${owner ? `<p><strong>${escapeHtml(owner.role)}</strong> · Prazo ${date(owner.due)}</p>` : ''}
+    <footer>
+       ${button('client', 'Abrir oficina', alert.client, 'quiet')}
+       ${index === CS.latest && !alert.cleared ? button(owner ? 'edit-intervention' : 'register-alert', owner ? 'Acompanhar ação' : 'Registrar ação', owner ? owner.id : alert.id) : ''}
+    </footer></li>`;
+}
+
+function alertsView() {
+  const available = listAlerts().filter(alert =>
+    (!filters.priority || filters.priority === alert.priority) &&
+    (!filters.alertClient || filters.alertClient === alert.client) &&
+    (!filters.alertType || filters.alertType === alert.key) &&
+    (!filters.alertState || (filters.alertState === 'Ativos' ? !alert.cleared : alertStatus(alert) === filters.alertState)));
+  return `${page('Central de alertas', 'Confira o que disparou cada alerta e encaminhe a ação para a função responsável.')}
+  <section class="panel">${panelHead('Alertas da semana')}
+    <div class="filter-row">
+    ${selectFilter('priority', 'Prioridade', [['', 'Todas'], 'Crítica', 'Alta', 'Média'])}
+    ${selectFilter('alertClient', 'Oficina', [['', 'Todas'], ...portfolio().map(c => [c.id, c.name])])}
+    ${selectFilter('alertType', 'Tipo de alerta', [['', 'Todos'], ...Object.entries(CS.cause).map(([key, item]) => [key, item.title])])}
+    ${selectFilter('alertState', 'Situação', [['Ativos', 'Ativos'], ['', 'Todos'], 'Em aberto', 'Em andamento', 'A verificar', 'Normalizado'])}
+    </div>
+    <div class="inside">${available.length ? `<ul class="alert-list">${available.map(alertCard).join('')}</ul>` : '<p class="empty">Não há alertas para os filtros escolhidos.</p>'}</div>
+  </section>`;
+}
+
+function interventionCard(item) {
+  const status = item.closed && item.closed > CS.weeks[index][1] ? 'Em andamento' : item.status;
+  const late = status !== 'Resolvido' && item.due < CS.weeks[index][1];
+  return `<li class="intervention-card"><div class="row">${tag(status)}${late ? '<span class="tag red">Prazo vencido</span>' : ''}</div>
+    <h3>${escapeHtml(item.text)}</h3><p>${escapeHtml(item.role)} · Registro ${date(item.date)} · Prazo ${date(item.due)}</p>
+    ${item.diagnosis ? `<p><strong>Problema</strong> ${escapeHtml(item.diagnosis)}</p>` : ''}
+    ${status === 'Resolvido' ? `<p><strong>Evidência de conclusão</strong> ${escapeHtml(item.evidence)}</p>` : ''}
+    ${index === CS.latest ? `<footer>${button('edit-intervention', status === 'Resolvido' ? 'Ver registro' : 'Atualizar ação', item.id)}</footer>` : ''}
+  </li>`;
+}
+
+function metricTable(adoption) {
+  if (!adoption.details.length) return '<p class="empty">A pontuação de adoção é calculada para oficinas com ChatEngrena e base disponível.</p>';
+  return `<div class="table-wrap" role="region" tabindex="0" aria-label="Tabela de indicadores de adoção"><table class="metrics-table">
+    <thead><tr><th scope="col">Indicador</th><th scope="col">Observado</th><th scope="col">Meta</th><th scope="col">Peso</th><th scope="col">Pontos</th></tr></thead>
+    <tbody>${adoption.details.map(item => `<tr>
+      <td><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.meaning)}</small></td>
+      <td>${item.state === 'missing' ? 'Indisponível' : item.total === 0 ? 'Sem oportunidade' : `${item.done} de ${item.total}<small>${Math.round(item.rate)}%${!item.valid ? ' · Amostra pequena' : item.rate < item.goal ? ' · Abaixo da meta' : ''}</small>`}</td>
+      <td>${item.goal}%</td><td>${item.weight}%</td><td>${item.points !== null ? decimal(item.points) : 'n/d'}</td></tr>`).join('')}
+    </tbody></table></div>`;
+}
+
+function statList(rows) {
+  return `<dl class="summary-metrics">${rows.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>`;
+}
+
+function detailView() {
+  const client = portfolio().find(item => item.id === clientId);
+  if (!client) return `${page('Oficina sem dados no período', 'Selecione uma semana posterior à entrada da oficina.')}${button('view', 'Voltar à carteira', 'clients')}`;
+  const row = client.row;
+  const score = client.adoption;
+  const records = interventions.filter(item => item.client === client.id && item.date <= CS.weeks[index][1]).sort((a, b) => b.date.localeCompare(a.date));
+  const alerts = listAlerts().filter(item => item.client === client.id);
+  const history = CS.weeks.map((_, i) => CS.score(client, CS.baseline(client, i, edits)).value);
+  const feedback = CS.weeks.slice(0, index + 1).map((week, i) => [week[2], CS.baseline(client, i, edits)?.scoreFeedback]).filter(([, rating]) => rating != null);
+  const count = row?.channels.reduce((sum, amount) => sum + amount, 0);
+  const stats = row ? [
+    ['Contatos recebidos', n(count)],
+    ['Google', n(row.channels[0])], ['Meta', n(row.channels[1])], ['Outros e origem desconhecida', n(row.channels[2])],
+    ['Ligações recebidas', n(row.calls?.[0])], ['Ligações atendidas', n(row.calls?.[1])],
+    ['Ligações não atendidas', n(row.calls ? row.calls[0] - row.calls[1] : null)], ['Ligações feitas', n(row.calls?.[2])],
+    ...(client.plan === 'Assessoria' ? [] : [
+      ['Atendimento efetivo', n(row.measures.service.state === 'count' ? row.measures.service.done : null)],
+      ['Tempo médio de resposta', row.speedAvg == null ? 'Indisponível' : `${n(row.speedAvg)} min`],
+      ['Orçamentos enviados', n(row.quotes)], ['Agendamentos criados', n(row.booked)],
+      ['Contatos da semana que agendaram', row.linkedBookings == null || count === 0 ? 'Indisponível' : `${row.linkedBookings} de ${count} (${Math.round(row.linkedBookings * 100 / count)}%)`],
+      ['Serviços com registro e valor', n(row.measures.record.state === 'count' ? row.measures.record.done : null)],
+      ['Valor registrado pela oficina', reais(row.value)],
+    ]),
+  ] : [];
+  return `
+    <div class="row no-print">${button('view', priorView === 'alerts' ? 'Voltar aos alertas' : 'Voltar à carteira', priorView, 'quiet')}</div>
+    <div class="pagehead">
+      <div class="detail-top"><div><p class="eyebrow">${escapeHtml(client.plan)} · ${escapeHtml(client.phase)}</p><h1>${escapeHtml(client.name)}</h1>
+      <p class="lead">${escapeHtml(client.owner)} · Cliente desde ${date(client.since)}</p>
+      <p class="help">Contato de demonstração · ${client.id}@exemplo.invalid</p></div></div>${interval()}
+    </div>
+    <div class="kpis">
+      ${kpi('Nota de adoção', score.value == null ? 'n/d' : decimal(score.value), score.label)}
+      ${kpi('Cobertura da base', score.coverage == null ? 'n/d' : `${Math.round(score.coverage)}%`, 'Peso dos indicadores válidos')}
+      ${kpi('Satisfação', row?.scoreFeedback == null ? 'n/d' : `${row.scoreFeedback} de 5`, 'Avaliação da oficina')}
+      ${kpi('Risco de cancelamento', client.risk, `${client.alerts.length} alertas ativos na semana`, client.risk === 'Alto' ? 'risk' : '')}
+    </div>
+    <div class="pair">
+      <section class="panel">${panelHead('Indicadores de adoção', 'Confira a base usada em cada indicador.', index === CS.latest ? button('edit-data', 'Editar simulação', client.id) : '')}${metricTable(score)}</section>
+      <section class="panel">${panelHead('Histórico de adoção')}${chart('detail-chart', history, 'client')}</section>
+    </div>
+    <div class="pair">
+      <section class="panel panel-pad"><h2>Demanda e resultados</h2><p>Contatos por origem identificada. Ligações ficam em uma contagem própria. Valores refletem os registros da oficina.</p>${stats.length ? statList(stats) : '<p>Semana sem dados.</p>'}</section>
+      <section class="panel panel-pad"><h2>Satisfação e contexto</h2><p>${escapeHtml(row?.feedbackNote || 'Sem comentário registrado na semana.')}</p>
+       ${feedback.length ? statList(feedback.map(([period, rating]) => [period, `${rating} de 5`])) : '<p>Sem avaliação registrada até esta semana.</p>'}
+       <details class="details-box"><summary>Responsáveis e próxima ação</summary><p>Engrena: função de Customer Success. Oficina: ${escapeHtml(client.owner)}.</p><p>${escapeHtml(client.alerts[0]?.action || client.next)}</p></details>
+      </section>
+    </div>
+    <div class="pair">
+      <section class="panel">${panelHead('Intervenções registradas', '', index === CS.latest ? button('register', 'Nova intervenção', client.id, 'button') : '')}
+        <div class="inside">${records.length ? `<ul class="intervention-list">${records.map(interventionCard).join('')}</ul>` : '<p class="empty">Nenhuma intervenção registrada até esta semana.</p>'}</div>
+      </section>
+      <section class="panel">${panelHead('Alertas da oficina')}<div class="inside">
+        ${alerts.length ? `<ul class="alert-list">${alerts.map(alertCard).join('')}</ul>` : '<p class="empty">Nenhum alerta acionado nesta semana.</p>'}</div>
+      </section>
+    </div>`;
+}
+
+function reportData() {
+  const list = portfolio();
+  const curr = CS.aggregate(list);
+  const previous = index ? Object.fromEntries(CS.portfolio(index - 1, edits).map(entry => [entry.id, entry])) : {};
+  const back = index ? CS.aggregate(Object.values(previous)) : null;
+  const scores = list.flatMap(client => {
+    const now = client.adoption.value;
+    const prior = previous[client.id]?.adoption.value;
+    return now == null || prior == null ? [] : [{
+      name: client.name, delta: Math.round((now - prior) * 10) / 10, now, prior,
+      recovered: client.adoption.label === 'Saudável' && previous[client.id].adoption.label !== 'Saudável',
+    }];
+  });
+  const activeAlerts = listAlerts().filter(alert => !alert.cleared);
+  const grouped = new Map();
+  for (const alert of activeAlerts) grouped.set(alert.title, (grouped.get(alert.title) ?? 0) + 1);
+  const issues = [...grouped].sort((a, b) => b[1] - a[1]).map(([name, count]) => `${name} (${count})`);
+  const vulnerable = list.filter(entry => entry.risk === 'Alto');
+  const [start, end] = CS.weeks[index];
+  const recorded = interventions.filter(item => item.date >= start && item.date <= end);
+  const completed = interventions.filter(item => item.closed && item.closed >= start && item.closed <= end);
+  const pending = interventions.filter(item => item.date <= end && (!item.closed || item.closed > end));
+  const clearedAlerts = listAlerts().filter(item => item.cleared);
+  const delta = curr.avg !== null && back?.avg != null ? Math.round((curr.avg - back.avg) * 10) / 10 : null;
+  const variation = delta === null ? 'período sem comparação anterior' : delta === 0 ? 'estável frente à semana anterior' :
+    `${delta > 0 ? 'alta' : 'queda'} de ${decimal(Math.abs(delta))} ponto${Math.abs(delta) === 1 ? '' : 's'} frente à semana anterior`;
+  const summary = `A carteira tem ${curr.count} oficinas monitoradas${curr.rated ? ` e adoção média de ${decimal(curr.avg)} entre ${curr.rated} com nota, ${variation}` : ' em uma semana sem base para nota média'}. ${curr.atRisk ? `${curr.atRisk} contrato${curr.atRisk === 1 ? '' : 's'} com risco alto, somando ${reais(curr.monthly)} de mensalidades expostas.` : 'Nenhum contrato com risco alto sinalizado na semana.'}`;
+  const movement = entry => `${entry.name} passou de ${decimal(entry.prior)} para ${decimal(entry.now)}`;
+  const context = [
+    ['Distribuição da carteira', [`${curr.healthy} saudáveis, ${curr.attention} em atenção, ${curr.critical} críticos, ${curr.pending} sem base e ${curr.na} sem aplicação da nota.`]],
+    ['Clientes que melhoraram', scores.filter(e => e.delta > 0).sort((a, b) => b.delta - a.delta).map(movement)],
+    ['Clientes que pioraram', scores.filter(e => e.delta < 0).sort((a, b) => a.delta - b.delta).map(movement)],
+    ['Clientes recuperados', scores.filter(e => e.recovered).map(movement)],
+    ['Problemas mais frequentes', issues],
+    ['Situação das intervenções', [`${recorded.length} ações registradas na semana, ${completed.length} concluídas e ${pending.length} em aberto ao fim da semana.`, `${activeAlerts.length} alertas ativos e ${clearedAlerts.length} normalizados.`]],
+    ['Contratos com risco alto', vulnerable.map(client => `${client.name} · ${reais(client.monthly)} por mês`)],
+    ['Evolução da satisfação', [curr.csat == null ? 'Sem avaliações na semana.' :
+      `Média atual de ${decimal(curr.csat)} de 5 entre ${curr.surveyed} respondentes.${back?.csat != null ? ` Na semana anterior, ${decimal(back.csat)} de 5 entre ${back.surveyed}.` : ''}`]],
+    ['Prioridades da próxima semana', activeAlerts.slice(0, 3).map(alert => `${catalog[alert.client].name} · ${alert.action}`)],
+  ];
+  return { summary, context, latest: curr, avg: CS.weeks.map((_, i) => CS.aggregate(CS.portfolio(i, edits)).avg) };
+}
+
+function reportsView() {
+  const report = reportData();
+  return `${page('Relatório semanal', 'Resumo da carteira para a gestão da Engrena.')}
+  <section class="panel">
+    ${panelHead('Resumo executivo', `${weekLabel(index)} · Dados fictícios`, `<div class="row no-print">${button('print', 'Imprimir', '', 'quiet')}${button('export', 'Baixar resumo', '', 'button')}</div>`)}
+    <div class="inside"><p class="report-intro">${escapeHtml(report.summary)}</p></div>
+    ${report.context.map(([heading, lines]) => `<div class="report-section"><h3>${escapeHtml(heading)}</h3>
+      ${lines.length > 1 ? `<ul class="report-list">${lines.map(line => `<li>${escapeHtml(line)}</li>`).join('')}</ul>` :
+      `<p>${escapeHtml(lines[0] || 'Sem ocorrências na semana.')}</p>`}</div>`).join('')}
+  </section>
+  <section class="panel section-gap">${panelHead('Histórico da adoção média')}${chart('report-chart', report.avg)}</section>`;
+}
+
+function exportReport() {
+  const { summary, context, avg } = reportData();
+  const history = CS.weeks.slice(0, index + 1).map((_, i) => `${weekLabel(i)} · ${decimal(avg[i])}`).join('\n');
+  const body = ['ENGRENA | CUSTOMER SUCCESS', `Resumo executivo · ${weekLabel(index)}`, 'Dados fictícios', '', summary,
+    ...context.flatMap(([heading, lines]) => ['', heading, ...(lines.length ? lines : ['Sem ocorrências na semana.'])]),
+    '', 'Histórico da adoção média', history].join('\r\n');
+  const url = URL.createObjectURL(new Blob(['\uFEFF', body], { type: 'text/plain;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `Engrena Resumo CS ${CS.weeks[index][1]}.txt`;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+const screens = { overview, clients: clientsView, alerts: alertsView, reports: reportsView, detail: detailView };
+function render() {
+  const selected = currentView === 'detail' ? priorView : currentView;
+  document.querySelectorAll('[data-view]').forEach(element => {
+    if (element.dataset.view === selected) element.setAttribute('aria-current', 'page');
+    else element.removeAttribute('aria-current');
+  });
+  const count = CS.aggregate(portfolio()).alerts;
+  document.querySelector('#nav-count').textContent = count || '';
+  workspace.innerHTML = screens[currentView]();
+}
+
+function navigation(view, focus = true) {
+  if (!screens[view]) return;
+  currentView = view;
+  render();
+  if (focus) {
+    main.focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+}
+
+function setPeriod(period, target) {
+  if (!CS.weeks[period]) return;
+  index = period;
+  if (!portfolio().some(item => item.id === filters.alertClient)) filters.alertClient = '';
+  render();
+  if (target === 'chart') {
+    workspace.querySelector(`[data-action="week"][data-value="${period}"]`)?.focus({ preventScroll: true });
+  } else {
+    workspace.querySelector('[data-period]')?.focus({ preventScroll: true });
+  }
+}
+
+function modal(title, body, trigger) {
+  modalSource = trigger;
+  dialogContent.innerHTML = `<div class="modal-head"><h2 id="dialog-title">${escapeHtml(title)}</h2>${button('close', 'Fechar', '', 'quiet')}</div><div class="modal-body">${body}</div>`;
+  dialog.showModal();
+}
+
+function method(trigger) {
+  modal('Metodologia de acompanhamento', `
+    <p><strong>Pontuação de 1 a 10.</strong> Para cada indicador com pelo menos cinco casos, divida a taxa observada pela meta e limite o resultado a 100%. Multiplique pelo peso. Some os pontos, divida pela soma dos pesos válidos e multiplique por 10, com piso de 1.</p>
+    <p><strong>Cobertura.</strong> É a proporção do peso válido sobre o peso aplicável. Soma pelo menos 70% e exige Atendimento efetivo válido para exibir nota. Base ausente ou com 1 a 4 casos fica pendente. Zero oportunidades comprovadas sai da base aplicável.</p>
+    <p><strong>Faixas.</strong> Saudável a partir de 8,5. Atenção de 6,0 a 8,4. Crítico abaixo de 6,0. A primeira casa decimal determina a faixa. Assessoria sem ChatEngrena acompanha demanda, entregas, satisfação e risco.</p>
+    <p><strong>Prazos iniciais.</strong> Resposta humana em 15 minutos úteis desde a entrada ou a transferência. Para a IA, use 5 minutos durante o período em que está configurada para atender. Contatos que ultrapassam 60 minutos úteis geram alerta na fila aplicável.</p>
+    <p><strong>Risco alto.</strong> Intenção de cancelar, falha crítica aberta ou avaliação de 3 ou menos. A receita em risco soma as mensalidades fictícias da Engrena desses contratos. A satisfação e os valores que a oficina registrou aparecem separadamente.</p>
+    <p><strong>Demonstração local.</strong> Você pode editar a semana de 16 a 22 de novembro. As alterações ficam neste navegador quando o armazenamento local está disponível. As semanas anteriores preservam os dados de origem.</p>`, trigger);
+}
+
+function editData(id, trigger) {
+  if (index !== CS.latest || !catalog[id]) return;
+  const client = catalog[id];
+  const row = CS.baseline(client, index, edits);
+  if (!row) return;
+  const fields = client.plan === 'Assessoria' ? '' : `
+    <p class="help">Deixe os dois campos vazios para indicar que o dado está indisponível. Use 0 nos dois campos quando a fonte confirmar que não houve casos elegíveis.</p>
+    ${CS.metrics.map(metric => {
+      const entry = row.measures[metric.key];
+      return `<div class="edit-row"><strong>${escapeHtml(metric.name)}</strong>
+        <label class="field">Executados<input aria-label="${escapeHtml(metric.name)} executados" type="number" min="0" max="1000000" step="1" name="${metric.key}Done" value="${entry.state === 'missing' ? '' : entry.done}"></label>
+        <label class="field">Elegíveis<input aria-label="${escapeHtml(metric.name)} elegíveis" type="number" min="0" max="1000000" step="1" name="${metric.key}Total" value="${entry.state === 'missing' ? '' : entry.total}"></label></div>`;
+    }).join('')}
+    <label class="field">Contatos com mais de 60 minutos úteis sem resposta<input type="number" name="overdue" min="0" max="1000000" required value="${row.overdue}"></label>
+    <label class="field">Retornos de orçamento vencidos e ainda pendentes<input type="number" name="openQuotes" min="0" max="1000000" required value="${row.openQuotes}"></label>
+    <label class="field">Ações operacionais na semana<input type="number" name="useActions" min="0" max="1000000" required value="${row.useActions}"></label>`;
+  modal('Editar dados da simulação', `<form id="scenario-form" data-client="${client.id}" class="edit-grid">
+    ${fields}
+    <label class="field">Satisfação da oficina<select name="feedback">${choices([['', 'Sem avaliação'], 1, 2, 3, 4, 5], row.scoreFeedback ?? '')}</select></label>
+    ${client.plan === 'Assessoria' ? `<label class="field">Retorno do responsável registrado<select name="ownerSignal">${choices([['1', 'Sim'], ['0', 'Pendente']], row.ownerSignal ? '1' : '0')}</select></label>` : ''}
+    <label class="field">Falha crítica em aberto<select name="failure">${choices([['0', 'Não'], ['1', 'Sim']], row.criticalFailure ? '1' : '0')}</select></label>
+    <label class="field">Intenção explícita de cancelamento<select name="cancel">${choices([['0', 'Não'], ['1', 'Sim']], row.cancel ? '1' : '0')}</select></label>
+    <p class="error" role="alert"></p>
+    <div class="form-actions">${button('close', 'Cancelar')}<button type="submit" class="button">Recalcular indicadores</button></div>
+    </form>`, trigger);
+}
+
+function storeScenario(form) {
+  const id = form.dataset.client;
+  const client = catalog[id];
+  const values = new FormData(form);
+  const row = structuredClone(CS.baseline(client, index, edits));
+  const error = form.querySelector('.error');
+  if (client.plan !== 'Assessoria') {
+    for (const metric of CS.metrics) {
+      const done = values.get(`${metric.key}Done`);
+      const total = values.get(`${metric.key}Total`);
+      if ((done === '') !== (total === '') || Number(done) > Number(total)) {
+        error.textContent = `${metric.name}. Preencha os dois campos ou deixe ambos vazios. O número executado deve ser menor ou igual ao elegível.`;
+        form.elements.namedItem(`${metric.key}Done`).focus();
+        return;
+      }
+      row.measures[metric.key] = done === '' ? { state: 'missing', total: 0, done: 0 } : { state: 'count', total: Number(total), done: Number(done) };
+    }
+    row.overdue = Number(values.get('overdue'));
+    row.openQuotes = Number(values.get('openQuotes'));
+    row.useActions = Number(values.get('useActions'));
+    const quote = row.measures.quote;
+    if (quote.state === 'count' && row.openQuotes > quote.total - quote.done) {
+      error.textContent = 'Os retornos vencidos em aberto não podem exceder os retornos que ficaram fora do prazo.';
+      form.elements.namedItem('openQuotes').focus();
+      return;
+    }
+  } else {
+    row.ownerSignal = values.get('ownerSignal') === '1';
+  }
+  row.scoreFeedback = values.get('feedback') ? Number(values.get('feedback')) : null;
+  row.criticalFailure = values.get('failure') === '1';
+  row.cancel = values.get('cancel') === '1';
+  row.lastNote = 'Indicadores ajustados na simulação';
+  CS.alertList(index, edits, seen).filter(alert => !alert.cleared).forEach(alert => { seen[alert.id] = alert; });
+  edits[id] = row;
+  CS.alertList(index, edits, seen).filter(alert => !alert.cleared).forEach(alert => { seen[alert.id] = alert; });
+  closeAndRender('edit-data', id);
+  save('Indicadores recalculados na simulação.');
+}
+
+function intervention(id, alertId, item, trigger) {
+  if (index !== CS.latest || !catalog[id]) return;
+  const alert = alertId ? listAlerts().find(entry => entry.id === alertId) : null;
+  const locked = item?.status === 'Resolvido';
+  if (locked) {
+    modal('Intervenção concluída', `<p>${escapeHtml(item.text)}</p><p><strong>Responsável</strong> ${escapeHtml(item.role)}</p>
+      ${item.diagnosis ? `<p><strong>Problema</strong> ${escapeHtml(item.diagnosis)}</p><p><strong>Origem e evidência inicial</strong> ${escapeHtml(item.source || 'Pendente')}</p><p><strong>Causa</strong> ${escapeHtml(item.reason || 'Pendente')}</p>` : ''}
+      <p><strong>Evidência de conclusão</strong> ${escapeHtml(item.evidence)}</p><p><strong>Encerramento</strong> ${date(item.closed)}</p>`, trigger);
+    return;
+  }
+  modal(item ? 'Atualizar intervenção' : 'Nova intervenção', `<form id="intervention-form" class="edit-grid" data-id="${item?.id || ''}" data-client="${id}" data-alert="${escapeHtml(alertId || '')}">
+    <p><strong>${escapeHtml(catalog[id].name)}</strong>${alert ? ` · ${escapeHtml(alert.title)}` : ''}</p>
+    <label class="field">Problema observado<input name="diagnosis" maxlength="200" required value="${escapeHtml(item?.diagnosis ?? alert?.title ?? '')}"></label>
+    <label class="field">Origem e evidência inicial<input name="source" maxlength="300" value="${escapeHtml(item?.source ?? alert?.evidence ?? '')}"></label>
+    <label class="field">Causa confirmada<input name="reason" maxlength="200" placeholder="Deixe em branco se estiver investigando." value="${escapeHtml(item?.reason ?? '')}"></label>
+    <label class="field">Ação<textarea name="text" required maxlength="500">${escapeHtml(item?.text ?? alert?.action ?? '')}</textarea></label>
+    <label class="field">Responsável pela ação<select name="role" required>${choices(CS.roles, item?.role || alert?.owner || CS.roles[0])}</select></label>
+    <label class="field">Prazo<input name="due" type="date" value="${item?.due || CS.asOf}" required></label>
+    <label class="field">Status<select name="status">${choices(['Em aberto', 'Em andamento', 'Resolvido'], item?.status || 'Em aberto')}</select></label>
+    <label class="field">Evidência de resolução<textarea name="evidence" maxlength="500" placeholder="Descreva o que confirmou a solução.">${escapeHtml(item?.evidence || '')}</textarea></label>
+    ${alert ? '<p class="help">O registro documenta a ação. O alerta é normalizado quando o indicador da simulação deixa de disparar a regra.</p>' : ''}
+    <p class="error" role="alert"></p><div class="form-actions">${button('close', 'Cancelar')}<button type="submit" class="button">Salvar intervenção</button></div>
+    </form>`, trigger);
+}
+
+function storeIntervention(form) {
+  const values = new FormData(form);
+  const error = form.querySelector('.error');
+  const text = values.get('text').trim();
+  const diagnosis = values.get('diagnosis').trim();
+  const status = values.get('status');
+  const evidence = values.get('evidence').trim();
+  if (!diagnosis || !text || (status === 'Resolvido' && !evidence)) {
+    error.textContent = !diagnosis ? 'Descreva o problema observado.' : !text ? 'Descreva a ação a realizar.' : 'Registre a evidência para marcar a intervenção como resolvida.';
+    form.elements.namedItem(!diagnosis ? 'diagnosis' : !text ? 'text' : 'evidence').focus();
+    return;
+  }
+  const old = interventions.find(item => item.id === form.dataset.id);
+  const id = old?.id ?? (globalThis.crypto?.randomUUID?.() || `i${Date.now()}`);
+  const item = { id, client: form.dataset.client, alert: form.dataset.alert, date: old?.date || CS.asOf,
+    due: values.get('due'), role: values.get('role'), status, text, diagnosis, source: values.get('source').trim(), reason: values.get('reason').trim(), evidence, closed: status === 'Resolvido' ? CS.asOf : '' };
+  interventions = old ? interventions.map(entry => entry.id === id ? item : entry) : [...interventions, item];
+  closeAndRender('edit-intervention', id);
+  save('Intervenção registrada.');
+}
+
+function closeAndRender(action, value) {
+  const source = modalSource;
+  modalSource = null;
+  dialog.close();
+  render();
+  const active = [...workspace.querySelectorAll(`[data-action="${action}"]`)].find(button => button.dataset.value === value);
+  if (active) active.focus({ preventScroll: true });
+  else if (source?.dataset.value && currentView === 'alerts') {
+    const card = [...workspace.querySelectorAll('[data-alert-id]')].find(element => element.dataset.alertId === source.dataset.value);
+    (card || main).focus({ preventScroll: true });
+  } else {
+    main.focus({ preventScroll: true });
+  }
+}
+
+document.addEventListener('click', event => {
+  const target = event.target.closest('[data-view], [data-action]');
+  if (!target) return;
+  if (target.dataset.view) {
+    navigation(target.dataset.view);
+    return;
+  }
+  const { action, value } = target.dataset;
+  if (action === 'view') navigation(value);
+  if (action === 'method') method(target);
+  if (action === 'week') setPeriod(Number(value), 'chart');
+  if (action === 'clear') {
+    filters = { ...defaultFilters };
+    render();
+    workspace.querySelector('[data-filter="search"]')?.focus();
+  }
+  if (action === 'client') {
+    if (currentView !== 'detail') priorView = currentView === 'alerts' ? 'alerts' : 'clients';
+    clientId = value;
+    navigation('detail');
+  }
+  if (action === 'alert-focus') {
+    filters = { ...filters, priority: '', alertClient: '', alertType: '', alertState: 'Ativos' };
+    navigation('alerts');
+    const card = [...workspace.querySelectorAll('[data-alert-id]')].find(element => element.dataset.alertId === value);
+    card?.focus();
+    card?.scrollIntoView({ block: 'nearest' });
+  }
+  if (action === 'close') dialog.close();
+  if (action === 'edit-data') editData(value, target);
+  if (action === 'register') intervention(value, '', null, target);
+  if (action === 'register-alert') {
+    const alert = listAlerts().find(item => item.id === value);
+    if (alert) intervention(alert.client, alert.id, null, target);
+  }
+  if (action === 'edit-intervention') {
+    const item = interventions.find(entry => entry.id === value);
+    if (item) intervention(item.client, item.alert, item, target);
+  }
+  if (action === 'print') window.print();
+  if (action === 'export') exportReport();
+});
+
+document.addEventListener('input', event => {
+  if (event.target.dataset.filter !== 'search') return;
+  filters.search = event.target.value;
+  document.querySelector('#client-table').innerHTML = clientTable();
+});
+
+document.addEventListener('change', event => {
+  const field = event.target;
+  if ('period' in field.dataset) setPeriod(Number(field.value), 'select');
+  const key = field.dataset.filter;
+  if (key && key !== 'search') {
+    filters[key] = field.value;
+    if (currentView === 'clients') document.querySelector('#client-table').innerHTML = clientTable();
+    else {
+      render();
+      workspace.querySelector(`[data-filter="${key}"]`)?.focus({ preventScroll: true });
+    }
+  }
+});
+
+document.addEventListener('keydown', event => {
+  if ((event.key === ' ' || event.key === 'Enter') && event.target.dataset.action === 'week') {
+    event.preventDefault();
+    setPeriod(Number(event.target.dataset.value), 'chart');
+  }
+});
+
+dialog.addEventListener('close', () => {
+  if (modalSource?.isConnected) modalSource.focus({ preventScroll: true });
+  modalSource = null;
+});
+
+dialog.addEventListener('submit', event => {
+  event.preventDefault();
+  if (event.target.id === 'scenario-form') storeScenario(event.target);
+  if (event.target.id === 'intervention-form') storeIntervention(event.target);
+});
+
+render();
+</script>
+</body>
+</html>
